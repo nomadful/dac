@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Nomadful</title>
+  <link rel="stylesheet" href="https://nomadful.io/cdn/dac/style.css">
+  <meta name="theme-color" content="#070707" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/translater.js/1.0.12/translater.min.js" integrity="sha512-lVd8Ov3O+4Ubc0HN0IKhjbP4nOg7MDoQORI2tpkWSdRr3440zt31uR+lgO9QNDGrBUjq/hcsMjQDVux/02142w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/swiped-events/1.2.0/swiped-events.min.js" integrity="sha512-9+LGfjYbkKUzUhs1qyz0d/T5g/v4c+bCuYz2YHOuiAE3LLFnDbRUsMviLEzLRRGM1MXBswzb7UWZiysgkyHMdA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </head>
+  <style>
+    .d-slider {
+  scroll-snap-type: x mandatory;  
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  position: fixed;
+  position: -webkit-fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  transition: linear 300ms;
+      display: flex;
+}
+
+.d-slide {
+  min-width: 100%;
+  height: 100%;
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+}
+  </style>
+  <body>
+    <center>
+      <div class="d-slider">
+        <div class="d-slide">
+          <div style="width: 100%; height: 100%; position: relative;">
+            <img src="https://nomadful.io/cdn/web-assets/breathe.png" style="width: 80%; text-align: center; margin-top: 100px;">
+            <div style="width: 100%; height: 50%; position: absolute; bottom: 0px; background: rgb(7,7,7); background: linear-gradient(0deg, rgba(7,7,7,1) 30%, rgba(7,7,7,0) 100%);">
+              <div style="position: relative; top: 50%; transform: translateY(-50%);">
+                <h3>
+                  Tutorial name
+                </h3>
+                <p style="margin-top: -15px;">
+                  Tutorial description
+                </p>
+                <div class="touch-2" style="width: fit-content; height: 40px; background: #55AFFE50; color: #55AFFE; border-radius: 40px; outline: none; border: none; font-family: 'Spline Sans', system-ui; font-weight: 600; text-transform: uppercase; font-size: 16px;">
+                  <span style="padding-left: 12px; padding-right: 12px; line-height: 40px;">
+                    Play
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-slide"></div>
+      </div>
+    </center>
+    <script> 
+      var tran = new Translater();
+    </script>
+  </body>
+</html>
