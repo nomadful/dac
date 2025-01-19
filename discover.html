@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Nomadful</title>
-  <link rel="stylesheet" href="https://nomadful.io/cdn/dac/style.css">
+  <link rel="stylesheet" href="https://nomadful.io/style.css">
   <meta name="theme-color" content="#070707" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/translater.js/1.0.12/translater.min.js" integrity="sha512-lVd8Ov3O+4Ubc0HN0IKhjbP4nOg7MDoQORI2tpkWSdRr3440zt31uR+lgO9QNDGrBUjq/hcsMjQDVux/02142w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/swiped-events/1.2.0/swiped-events.min.js" integrity="sha512-9+LGfjYbkKUzUhs1qyz0d/T5g/v4c+bCuYz2YHOuiAE3LLFnDbRUsMviLEzLRRGM1MXBswzb7UWZiysgkyHMdA==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -13,6 +13,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.min.css" integrity="sha512-uPqDOam5vjVgnASE75fCgMtdLa3oK2+3muDU5ESulSImHAA0Z0xjEnuJpKowTsXUWY09MsYre48zgBFwh2P/yw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <style>
+    *::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0px;
+    height: 0px;
+    appearance: none;
+    display: none;
+    opacity: 0;
+}
+    
     .d-slider {
   scroll-snap-type: y mandatory;  
   -webkit-overflow-scrolling: touch;
@@ -26,6 +35,7 @@
       box-sizing: border-box; 
       -webkit-box-sizing: border-box;
       z-index: 100000;
+      background: #000000;
 }
 
 .d-slide {
@@ -67,58 +77,213 @@
     video::-webkit-media-controls-fullscreen-button {
     display: none !important;
 }
+    
+    .ad-btn {
+  width: 100%;
+  height: 54px;
+  border-radius: 54px;
+  border: none;
+  margin-bottom: 20px;
+  font-family: "Spline Sans", system-ui;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: linear 100ms;
+  margin-top: 0;
+  filter: drop-shadow(0px 0px 40px rgba(0 0 0 / 40%));
+  z-index: 100000000;
+  overflow: visible;
+  -webkit-border-fit:border !important;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0;
+  background: #FFFFFF30; 
+  color: #FFFFFF;
+}
+    
+    .profile {
+      width: 100%; 
+      height: 60vh;
+      background: #0C1620;
+      position: fixed;
+      position: -webkit-fixed;
+      bottom: 0px;
+      z-index: 1000000;
+      border-radius: 16px 16px 0px 0px;
+      overflow: auto;
+    }
+    
+    body {
+      user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+    }
   </style>
   <body>
     <center>
       <div class="d-slider">
         <div class="d-slide" id="s1">
           <div id="target" style="width: 100%; height: 100%; background: #000000; object-fit: cover;" autoplay muted playsinline webkit-playsinline clicktofullscreen="false" loop></div>
-          <button class="blbg touch-2" style="position: absolute; top: 80px; right: 20px; background: #FFFFFF20; width: 40px; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px;" id="v1-muted">
+          <div class="blbg touch-2" style="position: absolute; top: 80px; left: 20px; background: #FFFFFF20; width: auto; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);" id="usr-t-1">
+              <img src="https://cdn.glitch.global/2d6e568a-47b8-4f2a-901b-67b9aad6a35d/8c340a02-e572-4041-8dd9-d84d479e96fb.image.png?v=1731612752034" style="width: 30px; height: 30px; border-radius: 30px; object-fit: cover; margin-left: 5px; margin-right: 5px; position: relative; top: 50%;  transform: translateY(-50%); float: left;">
+            <h4 style="color: #FFFFFF; font-weight: 500; height: 40px; position: relative; top: 50%; transform: translateY(-50%); margin-top: 2px; font-size: 0.9em; margin-right: 5px;">
+              username
+              <br>
+              <span style="text-align: left; font-weight: 400; float: left; margin-top: -2px; font-size: 0.8em;"># posts</span>
+            </h4>
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%;transform: translateY(-50%); margin-top: 0px; margin-right: 0px;">
+              <path xmlns="http://www.w3.org/2000/svg" d="M517.85-480 354.92-642.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69l179.77 179.77q5.61 5.62 7.92 11.85 2.31 6.23 2.31 13.46t-2.31 13.46q-2.31 6.23-7.92 11.85L397.08-274.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L517.85-480Z"/>
+            </svg>
+          </div>
+          <div class="blbg touch-2" style="position: absolute; top: 80px; right: 20px; background: #FFFFFF20; width: 40px; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px;" id="v1-muted">
               <path d="m707.69-437.85-82.92 82.93q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L665.54-480l-82.93-82.92q-8.3-8.31-8.49-20.89-.2-12.57 8.49-21.27 8.7-8.69 21.08-8.69 12.39 0 21.08 8.69l82.92 82.93 82.92-82.93q8.31-8.3 20.89-8.5 12.58-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L749.84-480l82.93 82.92q8.31 8.31 8.5 20.89.19 12.57-8.5 21.27-8.69 8.69-21.08 8.69-12.38 0-21.08-8.69l-82.92-82.93ZM294.62-380H182.31q-15.46 0-25.81-10.35-10.34-10.34-10.34-25.81v-127.68q0-15.47 10.34-25.81Q166.85-580 182.31-580h112.31l119.69-119.69q14.38-14.38 33.11-6.58 18.73 7.81 18.73 28.27v396q0 20.46-18.73 28.27-18.73 7.8-33.11-6.58L294.62-380Zm111.53-226-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
             </svg>
             <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px; display: none;" id="v1-unmuted">
               <path xmlns="http://www.w3.org/2000/svg" d="M753.85-481q0-82.5-44.21-150.58-44.21-68.09-118.56-101.88-11.54-5.46-17-16.31-5.46-10.84-1.34-22.12 4.95-12.03 17.18-16.72 12.23-4.7 24.77.77 90.46 41.07 144.81 123.6 54.34 82.52 54.34 183.23 0 100.7-54.34 183.24-54.35 82.54-144.81 123.61-12.54 5.47-24.77.77-12.23-4.69-17.18-16.72-4.12-11.28 1.34-22.12 5.46-10.85 17-16.31 74.35-33.79 118.56-101.88Q753.85-398.5 753.85-481ZM294.62-380H182.31q-15.37 0-25.76-10.4-10.39-10.39-10.39-25.76v-127.68q0-15.37 10.39-25.76 10.39-10.4 25.76-10.4h112.31l119.69-119.69q14.38-14.38 33.11-6.49 18.73 7.89 18.73 28.18v396q0 20.29-18.73 28.18-18.73 7.89-33.11-6.49L294.62-380Zm351.53-99.96q0 37.43-15.54 70.85-15.53 33.42-41.88 56.19-8.5 5.69-17.85 1.15-9.34-4.54-9.34-15v-228.46q0-10.46 9.34-15 9.35-4.54 17.85 1.09 26.35 23.45 41.88 57.6 15.54 34.16 15.54 71.58ZM406.15-606l-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
             </svg>
-          </button>
-          <div style="width: calc(100% - 40px); height: auto; position: absolute; bottom: 80px; margin: 0; left: 0; right: 0; margin-left: auto; margin-right: auto;">
-            <h4 style="text-align: left; display: inline-block; height: 24px; width: 100%;" class="touch-2" id="usr-t1">
-              <img src="https://cdn.glitch.global/2d6e568a-47b8-4f2a-901b-67b9aad6a35d/8c340a02-e572-4041-8dd9-d84d479e96fb.image.png?v=1731612752034" style="width: 30px; height: 30px; border-radius: 30px; object-fit: cover; margin-right: 10px; position: relative; top: 4px; float: left;">
-              relaxcapes
-              <br>
-              <span style="clear: all; font-size: 12px; color: #FFFFFF99; font-weight: 500; position: relative; top: -5px;">
-                Original audio
-              </span>
-            </h4>
           </div>
         </div>
         <div class="d-slide" id="s2">
-          
+          <div id="target2" style="width: 100%; height: 100%; background: #000000; object-fit: cover;" autoplay muted playsinline webkit-playsinline clicktofullscreen="false" loop></div>
+          <div class="blbg touch-2" style="position: absolute; top: 80px; left: 20px; background: #FFFFFF20; width: auto; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);" id="usr-t-2">
+              <img src="https://cdn.glitch.global/2d6e568a-47b8-4f2a-901b-67b9aad6a35d/8c340a02-e572-4041-8dd9-d84d479e96fb.image.png?v=1731612752034" style="width: 30px; height: 30px; border-radius: 30px; object-fit: cover; margin-left: 5px; margin-right: 5px; position: relative; top: 50%;  transform: translateY(-50%); float: left;">
+            <h4 style="color: #FFFFFF; font-weight: 500; height: 40px; position: relative; top: 50%; transform: translateY(-50%); margin-top: 2px; font-size: 0.9em; margin-right: 5px;">
+              username
+              <br>
+              <span style="text-align: left; font-weight: 400; float: left; margin-top: -2px; font-size: 0.8em;"># posts</span>
+            </h4>
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%;transform: translateY(-50%); margin-top: 0px; margin-right: 0px;">
+              <path xmlns="http://www.w3.org/2000/svg" d="M517.85-480 354.92-642.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69l179.77 179.77q5.61 5.62 7.92 11.85 2.31 6.23 2.31 13.46t-2.31 13.46q-2.31 6.23-7.92 11.85L397.08-274.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L517.85-480Z"/>
+            </svg>
+          </div>
+          <div class="blbg touch-2" style="position: absolute; top: 80px; right: 20px; background: #FFFFFF20; width: 40px; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px;" id="v2-muted">
+              <path d="m707.69-437.85-82.92 82.93q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L665.54-480l-82.93-82.92q-8.3-8.31-8.49-20.89-.2-12.57 8.49-21.27 8.7-8.69 21.08-8.69 12.39 0 21.08 8.69l82.92 82.93 82.92-82.93q8.31-8.3 20.89-8.5 12.58-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L749.84-480l82.93 82.92q8.31 8.31 8.5 20.89.19 12.57-8.5 21.27-8.69 8.69-21.08 8.69-12.38 0-21.08-8.69l-82.92-82.93ZM294.62-380H182.31q-15.46 0-25.81-10.35-10.34-10.34-10.34-25.81v-127.68q0-15.47 10.34-25.81Q166.85-580 182.31-580h112.31l119.69-119.69q14.38-14.38 33.11-6.58 18.73 7.81 18.73 28.27v396q0 20.46-18.73 28.27-18.73 7.8-33.11-6.58L294.62-380Zm111.53-226-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px; display: none;" id="v2-unmuted">
+              <path xmlns="http://www.w3.org/2000/svg" d="M753.85-481q0-82.5-44.21-150.58-44.21-68.09-118.56-101.88-11.54-5.46-17-16.31-5.46-10.84-1.34-22.12 4.95-12.03 17.18-16.72 12.23-4.7 24.77.77 90.46 41.07 144.81 123.6 54.34 82.52 54.34 183.23 0 100.7-54.34 183.24-54.35 82.54-144.81 123.61-12.54 5.47-24.77.77-12.23-4.69-17.18-16.72-4.12-11.28 1.34-22.12 5.46-10.85 17-16.31 74.35-33.79 118.56-101.88Q753.85-398.5 753.85-481ZM294.62-380H182.31q-15.37 0-25.76-10.4-10.39-10.39-10.39-25.76v-127.68q0-15.37 10.39-25.76 10.39-10.4 25.76-10.4h112.31l119.69-119.69q14.38-14.38 33.11-6.49 18.73 7.89 18.73 28.18v396q0 20.29-18.73 28.18-18.73 7.89-33.11-6.49L294.62-380Zm351.53-99.96q0 37.43-15.54 70.85-15.53 33.42-41.88 56.19-8.5 5.69-17.85 1.15-9.34-4.54-9.34-15v-228.46q0-10.46 9.34-15 9.35-4.54 17.85 1.09 26.35 23.45 41.88 57.6 15.54 34.16 15.54 71.58ZM406.15-606l-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
+            </svg>
+          </div>
         </div>
-      </div>
-      <div id="v-o"></div>
-      <div style="width: calc(100% - 60px); float: left;">
-        <div style="margin-top: 100px; width: calc(100% - 40px); text-align: left;">
-          <div style="width: 100%; display: flex; height: 60px;">
-            <div style="display: inline-block;">
-              <img src="https://nomadful.io/favicon.png" style="width: 60px; height: 60px; border-radius: 60px; object-fit: cover;">
-            </div>
-            <div style="display: inline-block; height: 60px; margin-left: 12px; margin-top: 6px;">
-              <span style="color: #FFFFFF50; font-size: 14px; text-transform: uppercase; font-weight: 500;">
-                /Username
-              </span>
-              <h3 style="margin-top: 0px;">
-                Display name
-              </h3>
-            </div>
-            <div style="width: 40px; height: 40px; background: #FFFFFF20; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px); border-radius: 40px; margin-left: auto; position: relative; top: 50%; transform: translateY(-50%);" class="touch-2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="width: 24px; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); fill: #FFFFFF;">
-                  <path d="M345.77-323.08 532-379.54q17.69-5.61 30.27-18.19 12.58-12.58 18.19-30.27L637-614.31q2.92-10.15-4.88-17.88-7.8-7.73-17.89-4.73L428-580.46q-17.69 5.61-30.27 18.19-12.58 12.58-18.19 30.27L323-345.69q-2.92 10.15 4.88 17.88 7.8 7.73 17.89 4.73Zm134.14-104.61q-21.83 0-37.02-15.29-15.2-15.28-15.2-37.11t15.29-37.02q15.28-15.2 37.11-15.2t37.02 15.29q15.2 15.28 15.2 37.11t-15.29 37.02q-15.28 15.2-37.11 15.2Zm.16 327.69q-78.84 0-148.21-29.92t-120.68-81.21q-51.31-51.29-81.25-120.63Q100-401.1 100-479.93q0-78.84 29.92-148.21t81.21-120.68q51.29-51.31 120.63-81.25Q401.1-860 479.93-860q78.84 0 148.21 29.92t120.68 81.21q51.31 51.29 81.25 120.63Q860-558.9 860-480.07q0 78.84-29.92 148.21t-81.21 120.68q-51.29 51.31-120.63 81.25Q558.9-100 480.07-100Zm-.07-60q133.38 0 226.69-93.31T800-480q0-133.38-93.31-226.69T480-800q-133.38 0-226.69 93.31T160-480q0 133.38 93.31 226.69T480-160Zm0-320Z"/>
-                </svg>
+        <div class="d-slide" id="s3">
+          <div id="target3" style="width: 100%; height: 100%; background: #000000; object-fit: cover;" autoplay muted playsinline webkit-playsinline clicktofullscreen="false" loop></div>
+          <div class="blbg touch-2" style="position: absolute; top: 80px; left: 20px; background: #FFFFFF20; width: auto; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);" id="usr-t-3">
+              <img src="https://cdn.glitch.global/2d6e568a-47b8-4f2a-901b-67b9aad6a35d/8c340a02-e572-4041-8dd9-d84d479e96fb.image.png?v=1731612752034" style="width: 30px; height: 30px; border-radius: 30px; object-fit: cover; margin-left: 5px; margin-right: 5px; position: relative; top: 50%;  transform: translateY(-50%); float: left;">
+            <h4 style="color: #FFFFFF; font-weight: 500; height: 40px; position: relative; top: 50%; transform: translateY(-50%); margin-top: 2px; font-size: 0.9em; margin-right: 5px;">
+              username
+              <br>
+              <span style="text-align: left; font-weight: 400; float: left; margin-top: -2px; font-size: 0.8em;"># posts</span>
+            </h4>
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%;transform: translateY(-50%); margin-top: 0px; margin-right: 0px;">
+              <path xmlns="http://www.w3.org/2000/svg" d="M517.85-480 354.92-642.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69l179.77 179.77q5.61 5.62 7.92 11.85 2.31 6.23 2.31 13.46t-2.31 13.46q-2.31 6.23-7.92 11.85L397.08-274.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L517.85-480Z"/>
+            </svg>
+          </div>
+          <div class="blbg touch-2" style="position: absolute; top: 80px; right: 20px; background: #FFFFFF20; width: 40px; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px;" id="v3-muted">
+              <path d="m707.69-437.85-82.92 82.93q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L665.54-480l-82.93-82.92q-8.3-8.31-8.49-20.89-.2-12.57 8.49-21.27 8.7-8.69 21.08-8.69 12.39 0 21.08 8.69l82.92 82.93 82.92-82.93q8.31-8.3 20.89-8.5 12.58-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L749.84-480l82.93 82.92q8.31 8.31 8.5 20.89.19 12.57-8.5 21.27-8.69 8.69-21.08 8.69-12.38 0-21.08-8.69l-82.92-82.93ZM294.62-380H182.31q-15.46 0-25.81-10.35-10.34-10.34-10.34-25.81v-127.68q0-15.47 10.34-25.81Q166.85-580 182.31-580h112.31l119.69-119.69q14.38-14.38 33.11-6.58 18.73 7.81 18.73 28.27v396q0 20.46-18.73 28.27-18.73 7.8-33.11-6.58L294.62-380Zm111.53-226-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px; display: none;" id="v3-unmuted">
+              <path xmlns="http://www.w3.org/2000/svg" d="M753.85-481q0-82.5-44.21-150.58-44.21-68.09-118.56-101.88-11.54-5.46-17-16.31-5.46-10.84-1.34-22.12 4.95-12.03 17.18-16.72 12.23-4.7 24.77.77 90.46 41.07 144.81 123.6 54.34 82.52 54.34 183.23 0 100.7-54.34 183.24-54.35 82.54-144.81 123.61-12.54 5.47-24.77.77-12.23-4.69-17.18-16.72-4.12-11.28 1.34-22.12 5.46-10.85 17-16.31 74.35-33.79 118.56-101.88Q753.85-398.5 753.85-481ZM294.62-380H182.31q-15.37 0-25.76-10.4-10.39-10.39-10.39-25.76v-127.68q0-15.37 10.39-25.76 10.39-10.4 25.76-10.4h112.31l119.69-119.69q14.38-14.38 33.11-6.49 18.73 7.89 18.73 28.18v396q0 20.29-18.73 28.18-18.73 7.89-33.11-6.49L294.62-380Zm351.53-99.96q0 37.43-15.54 70.85-15.53 33.42-41.88 56.19-8.5 5.69-17.85 1.15-9.34-4.54-9.34-15v-228.46q0-10.46 9.34-15 9.35-4.54 17.85 1.09 26.35 23.45 41.88 57.6 15.54 34.16 15.54 71.58ZM406.15-606l-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="d-slide" id="a1">
+          <video id="admedia" style="width: 100%; height: 100%; background: #000000; object-fit: cover;" autoplay muted playsinline webkit-playsinline clicktofullscreen="false" loop></video>
+          <div class="blbg touch-2" style="position: absolute; top: 80px; left: 20px; width: auto; height: 40px; z-index: 1000000; display: flex; outline: none; border: none;">
+            <h4 style="color: #FFFFFF; font-weight: 500; line-height: 40px; margin-top: 0px; font-size: 0.9em;">
+              Advertisement
+            </h4>
+          </div>
+          <div class="blbg touch-2" style="position: absolute; top: 80px; right: 20px; background: #FFFFFF20; width: 40px; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px;">
+              <path xmlns="http://www.w3.org/2000/svg" d="M280-420v260q0 12.75-8.63 21.37-8.63 8.63-21.38 8.63-12.76 0-21.37-8.63Q220-147.25 220-160v-583.84q0-15.37 10.4-25.76 10.39-10.4 25.76-10.4h257.76q12.81 0 22.87 8.04 10.05 8.04 12.67 20.88L559.84-700h184q15.37 0 25.76 10.35Q780-679.3 780-664v288.01q0 15.3-10.4 25.64Q759.21-340 743.84-340H566.08q-12.81 0-22.87-8.04-10.05-8.04-12.67-20.88L520.16-420H280Zm306 20h134v-240H539.92q-12.8 0-22.86-8.04-10.06-8.04-12.68-20.88L494-720H280v240h260.08q12.8 0 22.86 8.04 10.06 8.04 12.68 20.88L586-400Zm-86-160Z"/>
+            </svg>
+          </div>
+          <div style="width: 100%; height: 150px; background: rgb(12,22,32); background: linear-gradient(0deg, rgba(12,22,32,1) 0%, rgba(12,22,32,0) 100%); position: absolute; bottom: 0px;">
+            <div style="width: 100%; height: 100%; position: relative;">
+              <div style="width: 100%; height: 70px; position: absolute; top: 0px;">
+                <div style="width: calc(100% - 40px);">
+                  <img src="..." id="adimg" style="width: 60px; height: 60px; object-fit: cover; position: absolute; top: 50%; transform: translateY(-50%); left: 20px; border-radius: 60px;">
+                  <div style="display: inline-block; text-align: left; height: 60px; margin: 0; float: left; position: relative; left: 72px;">
+                  <h4 style="margin-top: 13px;" id="adname">
+                    Advertiser name
+                  </h4>
+                  <p style="margin-top: -20px; font-size: 15px; color: #FFFFFF80;" id="adlink">
+                   website.com
+                  </p>
+                </div>
+                  <a href="" id="adlanding" target="_blank">
+                  <button class="touch-2 ad-btn" style="width: auto; height: 40px; position: absolute; top: 50%; transform: translateY(-50%); right: 20px; float: right; border-radius: 50px;">
+                    <span style="padding-left: 12px; padding-right: 12px;">
+                      Website
+                      <!--{af}Webwerf-->
+                      <!--{ca}Lloc web-->
+                      <!--{da}Hjemmeside-->
+                      <!--{de}Internetseite-->
+                      <!--{es}Sitio web-->
+                      <!--{fi}Web-sivusto-->
+                      <!--{fr}Site web-->
+                      <!--{ga}Suíomh Gréasáin-->
+                      <!--{gd}Làrach-lìn-->
+                      <!--{gl}Sitio web-->
+                      <!--{is}Vefsíða-->
+                      <!--{it}Sito web-->
+                      <!--{lb}Websäit-->
+                      <!--{mt}Websajt-->
+                      <!--{mi}Pae tukutuku-->
+                      <!--{nl}Website-->
+                      <!--{nb}Nettsted-->
+                      <!--{pt}Site-->
+                      <!--{se}Neahttasiidu-->
+                      <!--{sv}Webbplats-->
+                      <!--{zu}Iwebhusayithi-->
+                      <!--{el}Ιστοσελίδα-->
+                      <!--{yue}網站-->
+                      <!--{ja}ホームページ-->
+                      <!--{ko}웹사이트-->
+                      <!--{th}เว็บไซต์-->
+                      <!--{yua}Ts'ono'oto' web-->
+                      <!--{cy}Gwefan-->
+                      <!--{fil}Website-->
+                      <!--{hr}Web stranica-->
+                      <!--{pl}Strona-->
+                    </span>
+                  </button>
+                </a>
+                </div>
+              </div>
             </div>
           </div>
-          <div style="width: 100%; display: flex; height: 40px; margin-top: 10px; gap: 5px;">
-            <div style="width: 100%; height: 40px;">
+        </div>
+      </div>
+      <div class="profile" id="p-v">
+        <img src="https://pbs.twimg.com/profile_banners/25073877/1604214583/1080x360" style="width: 100%; position: absolute; aspect-ratio: 3 / 1; left: 0; object-fit: cover;">
+        <nav class="topbar" style="height: 80px; position: absolute; top: 0;">
+        <div class="touch-2" id="profile-c" style="width: 44px; height: 44px; border-radius: 44px; background: #FFFFFF20; backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); float: left; position: relative; top: 50%; transform: translateY(-50%); left: 20px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 30px; position: relative; top: 50%; transform: translateY(-50%);"><path xmlns="http://www.w3.org/2000/svg" d="M480-437.85 277.08-234.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L437.85-480 234.92-682.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69L480-522.15l202.92-202.93q8.31-8.3 20.89-8.5 12.57-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L522.15-480l202.93 202.92q8.3 8.31 8.5 20.89.19 12.57-8.5 21.27-8.7 8.69-21.08 8.69-12.38 0-21.08-8.69L480-437.85Z"/></svg>
+        </div>
+        <h3 style="text-align: left; float: left; font-weight: 900; color: #FFFFFF; display: inline; position: relative; line-height: 80px; margin-top: 0px; margin-left: 30px;">
+          username
+        </h3>
+      </nav>
+        <div style="width: calc(100% - 40px); height: 120px; position: relative; top: 90px; display: flex;">
+          <img src="https://nomadful.io/favicon.png" style="width: 120px; height: 120px; float: left; box-sizing: border-box; -webkit-box-sizing: border-box; object-fit: cover; border: solid 5px #0C1620; border-radius: 120px;">
+          <div style="width: calc(100% - 120px); margin-left: auto; display: flex; align-items: flex-end;">
+            <div class="touch-2" style="background: #FFFFFF; width: auto; height: 40px; border-radius: 40px; position: absolute; top: 50%; right: 50px;">
+              <h5 style="line-height: 40px; margin-top: 0px; margin-left: 10px; margin-right: 10px; color: #0C1620;">
+                nomadful.io
+              </h5>
+            </div>
+            <div class="touch-2" style="background: #FFFFFF20; width: 40px; height: 40px; border-radius: 40px; position: absolute; top: 50%; right: 0; margin-right: auto;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 24px; position: relative; top: 50%; transform: translateY(-50%);">
+                <path xmlns="http://www.w3.org/2000/svg" d="M280-420v260q0 12.75-8.63 21.37-8.63 8.63-21.38 8.63-12.76 0-21.37-8.63Q220-147.25 220-160v-583.84q0-15.37 10.4-25.76 10.39-10.4 25.76-10.4h257.76q12.81 0 22.87 8.04 10.05 8.04 12.67 20.88L559.84-700h184q15.37 0 25.76 10.35Q780-679.3 780-664v288.01q0 15.3-10.4 25.64Q759.21-340 743.84-340H566.08q-12.81 0-22.87-8.04-10.05-8.04-12.67-20.88L520.16-420H280Zm306 20h134v-240H539.92q-12.8 0-22.86-8.04-10.06-8.04-12.68-20.88L494-720H280v240h260.08q12.8 0 22.86 8.04 10.06 8.04 12.68 20.88L586-400Zm-86-160Z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div style="clear: both; width: 100%; position: relative; margin-top: 100px; display: flex; align-items: center; justify-content: space-between; gap: 2.5%;">
+          <div style="width: 100%; height: 40px;">
               <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500;">
                 Joined
               </span>
@@ -137,26 +302,27 @@
             </div>
             <div style="width: 100%; height: 40px;">
               <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500;">
-                Posts
+                Clips
               </span>
               <h4 style="margin-top: 0px;">
                 0
               </h4>
             </div>
-          </div>
-          <div style="width: calc(100% - 100px); height: calc(100% - 210px); position: absolute; bottom: 0px; overflow-y: scroll;">
-            <div style="width: 100%; height: 30px; position: sticky; top: 0px; background: rgb(7,7,7); background: linear-gradient(180deg, rgba(7,7,7,1) 0%, rgba(7,7,7,0) 100%);"></div>
-            <div style="height: 0px;"></div>
-            <img src="https://cdn.glitch.global/2d6e568a-47b8-4f2a-901b-67b9aad6a35d/Frame%202.png?v=1731033954394" class="v-card">
-            <img src="https://cdn.glitch.global/2d6e568a-47b8-4f2a-901b-67b9aad6a35d/Frame%202.png?v=1731033954394" class="v-card" style="float: right;">
-            <div style="height: 6px;"></div>
-            <img src="https://cdn.glitch.global/2d6e568a-47b8-4f2a-901b-67b9aad6a35d/Frame%202.png?v=1731033954394" class="v-card">
-            <img src="https://cdn.glitch.global/2d6e568a-47b8-4f2a-901b-67b9aad6a35d/Frame%202.png?v=1731033954394" class="v-card" style="float: right;">
-            <div style="height: 6px;"></div>
-            <img src="https://cdn.glitch.global/2d6e568a-47b8-4f2a-901b-67b9aad6a35d/Frame%202.png?v=1731033954394" class="v-card">
-            <img src="https://cdn.glitch.global/2d6e568a-47b8-4f2a-901b-67b9aad6a35d/Frame%202.png?v=1731033954394" class="v-card" style="float: right;">
-            <div style="height: 100px;"></div>
-          </div>
+          <div style="width: 100%; height: 40px;">
+              <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500;">
+                Playback
+              </span>
+              <h4 style="margin-top: 0px;">
+                0
+              </h4>
+            </div>
+        </div>
+        <div style="clear: both; width: 100%; height: auto; position: relative; margin-top: 20px; margin-bottom: 110px; white-space: nowrap; position: relative; display: flex; overflow-x: scroll; overflow-y: hidden; -webkit-overflow-scrolling: touch;">
+          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 20px; border-radius: 10px; flex-shrink: 0;"></div>
+          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0;"></div>
+          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0;"></div>
+          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0;"></div>
+          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; margin-right: 20px;"></div>
         </div>
       </div>
     </center>
@@ -164,57 +330,6 @@
       var tran = new Translater();
     </script>
     <script name="users">
-      let lastTapTime = 0; // Variable to store the time of the last tap
-
-// Event listener for double-click on desktop
-document.querySelector("#s1").addEventListener('dblclick', function(e) {
-    document.querySelector(".d-slider").style.marginLeft = "calc(100% - 60px)";
-  document.querySelector(".d-slider").style.height = "calc(100% - 200px)";
-  document.querySelector(".d-slider").style.top = "100px";
-    document.querySelector(".d-slider").style.borderRadius = "12px";
-    document.querySelector("#v-o").style.display = "block";
-  document.querySelector("#v-o").style.left = "calc(100% - 60px)";
-  document.querySelector("#usr-t1").style.display = "none";
-});
-
-// Event listener for double-tap on touch devices
-document.querySelector("#s1").addEventListener('touchend', function(e) {
-    const currentTime = new Date().getTime();
-    const tapInterval = currentTime - lastTapTime;
-
-    // If the time between taps is less than 300ms, it's a double-tap
-    if (tapInterval < 300 && tapInterval > 0) {
-        document.querySelector(".d-slider").style.marginLeft = "calc(100% - 60px)";
-  document.querySelector(".d-slider").style.height = "calc(100% - 200px)";
-  document.querySelector(".d-slider").style.top = "100px";
-    document.querySelector(".d-slider").style.borderRadius = "12px";
-    document.querySelector("#v-o").style.display = "block";
-  document.querySelector("#v-o").style.left = "calc(100% - 60px)";
-      document.querySelector("#usr-t1").style.display = "none";
-    }
-    
-    lastTapTime = currentTime; // Update lastTapTime
-});
-
-      document.querySelector("#usr-t1").addEventListener("click", () => {
-        document.querySelector(".d-slider").style.marginLeft = "calc(100% - 60px)";
-  document.querySelector(".d-slider").style.height = "calc(100% - 200px)";
-  document.querySelector(".d-slider").style.top = "100px";
-    document.querySelector(".d-slider").style.borderRadius = "12px";
-    document.querySelector("#v-o").style.display = "block";
-  document.querySelector("#v-o").style.left = "calc(100% - 60px)";
-        document.querySelector("#usr-t1").style.display = "none";
-      });
-      
-      document.querySelector("#v-o").addEventListener("click", () => {
-        document.querySelector(".d-slider").style.marginLeft = "0px";
-  document.querySelector(".d-slider").style.height = "100%";
-  document.querySelector(".d-slider").style.top = "0px";
-    document.querySelector(".d-slider").style.borderRadius = "0px";
-    document.querySelector("#v-o").style.display = "none";
-  document.querySelector("#v-o").style.left = "0px";
-        document.querySelector("#usr-t1").style.display = "inline-block";
-      });
     </script>
     <script name="int">
       const voElement = document.getElementById('v-o');
@@ -241,7 +356,7 @@ voElement.addEventListener('touchend', (event) => {
 
   const player = await VidstackPlayer.create({
     target: '#target',
-    src: 'https://cdn.glitch.me/2d6e568a-47b8-4f2a-901b-67b9aad6a35d/3290093-uhd_3840_2160_25fps.mp4?v=1734324374225',
+    src: 'https://cdn.glitch.me/2d6e568a-47b8-4f2a-901b-67b9aad6a35d/4471213-hd_1920_1080_30fps.mp4?v=1731612769485',
   });
       
      player.setAttribute('disable-fullscreen', true);
@@ -288,5 +403,159 @@ const observer = new IntersectionObserver((entries) => {
 });
 observer.observe(target);
 </script>
+    <script type="module" name="s2">
+  import { PlyrLayout, VidstackPlayer } from 'https://cdn.vidstack.io/player';
+
+  const player = await VidstackPlayer.create({
+    target: '#target2',
+    src: 'https://cdn.glitch.me/2d6e568a-47b8-4f2a-901b-67b9aad6a35d/4471213-hd_1920_1080_30fps.mp4?v=1731612769485',
+  });
+      
+     player.setAttribute('disable-fullscreen', true);
+      
+     player.addEventListener('mousedown', (event) => {
+  player.pause();
+});
+
+player.addEventListener('mouseup', (event) => {
+  player.play();
+});
+
+player.addEventListener('touchstart', (event) => {
+  player.pause();
+});
+
+player.addEventListener('touchend', (event) => {
+  player.play();
+});
+      
+      document.querySelector("#v2-muted").addEventListener("click", () => {
+        document.querySelector("#v2-muted").style.display = "none";
+  document.querySelector("#v2-unmuted").style.display = "block";
+  player.removeAttribute("muted");
+      });
+      
+      document.querySelector("#v2-unmuted").addEventListener("click", () => {
+        document.querySelector("#v2-unmuted").style.display = "none";
+  document.querySelector("#v2-muted").style.display = "block";
+  player.setAttribute("muted", "");
+      });
+      
+      const target = document.getElementById('target2');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            player.play();
+        } else {
+            player.pause();
+        }
+    });
+}, {
+    threshold: 0.5
+});
+observer.observe(target);
+</script>
+    <script type="module" name="s3">
+  import { PlyrLayout, VidstackPlayer } from 'https://cdn.vidstack.io/player';
+
+  const player = await VidstackPlayer.create({
+    target: '#target3',
+    src: 'https://cdn.glitch.me/2d6e568a-47b8-4f2a-901b-67b9aad6a35d/4471213-hd_1920_1080_30fps.mp4?v=1731612769485',
+  });
+      
+     player.setAttribute('disable-fullscreen', true);
+      
+     player.addEventListener('mousedown', (event) => {
+  player.pause();
+});
+
+player.addEventListener('mouseup', (event) => {
+  player.play();
+});
+
+player.addEventListener('touchstart', (event) => {
+  player.pause();
+});
+
+player.addEventListener('touchend', (event) => {
+  player.play();
+});
+      
+      document.querySelector("#v3-muted").addEventListener("click", () => {
+        document.querySelector("#v3-muted").style.display = "none";
+  document.querySelector("#v3-unmuted").style.display = "block";
+  player.removeAttribute("muted");
+      });
+      
+      document.querySelector("#v3-unmuted").addEventListener("click", () => {
+        document.querySelector("#v3-unmuted").style.display = "none";
+  document.querySelector("#v3-muted").style.display = "block";
+  player.setAttribute("muted", "");
+      });
+      
+      const target = document.getElementById('target3');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            player.play();
+        } else {
+            player.pause();
+        }
+    });
+}, {
+    threshold: 0.5
+});
+observer.observe(target);
+</script>
+    <script name="ads">
+const items = [
+  {
+    name: "Nomadful, Ltd.",
+    prof: "https://nomadful.io/favicon.png",
+    link: "nomadful.io",
+    landing: "https://nomadful.io",
+    media: "https://cdn.glitch.me/2d6e568a-47b8-4f2a-901b-67b9aad6a35d/4471213-hd_1920_1080_30fps.mp4"
+  },
+  {
+    name: "Apple Inc.",
+    prof: "https://cdn.brandfetch.io/idnrCPuv87/w/400/h/400/theme/dark/icon.png?c=1bx1739477115964id64Mup7acfXNrYjRO&t=1729268361188",
+    link: "apple.com",
+    landing: "https://apple.com",
+    media: "https://cdn.brandfetch.io/idnrCPuv87/w/1500/h/500/theme/dark/id0Oynv-XM.jpeg"
+  },
+  {
+    name: "Google LLC",
+    prof: "https://cdn.brandfetch.io/id6O2oGzv-/w/400/h/400/theme/dark/icon.jpeg?c=1bx1739495819462id64Mup7acEhecwU5_&t=1731911483528",
+    link: "google.com",
+    landing: "https://google.com",
+    media: "https://cdn.brandfetch.io/id6O2oGzv-/w/1500/h/500/theme/dark/idE57bKcTj.jpeg"
+  },
+];
+      
+function randomizePageContent() {
+  const randomIndex = Math.floor(Math.random() * items.length);
+  const selectedItem = items[randomIndex];
+  document.getElementById('adname').innerHTML = selectedItem.name;
+  document.getElementById('adimg').src = selectedItem.prof;
+  document.getElementById('adlink').innerHTML = selectedItem.link;
+  document.getElementById('adlanding').href = selectedItem.landing;
+
+  const adMediaElement = document.getElementById('admedia');
+  if (selectedItem.media.endsWith('.jpg') || selectedItem.media.endsWith('.png') || selectedItem.media.endsWith('.jpeg') || selectedItem.media.endsWith('.gif')) {
+    adMediaElement.poster = selectedItem.media;
+    adMediaElement.src = "";
+  } else if (selectedItem.media.endsWith('.mp4') || selectedItem.media.endsWith('.webm')) {
+    adMediaElement.src = selectedItem.media;
+    adMediaElement.poster = "";
+  }
+}
+
+window.onload = randomizePageContent;
+    </script>
+    <script name="profiles">
+            document.querySelector("#profile-c").addEventListener("click", () => {
+  document.querySelector("#p-v").style.display = "none";
+});
+    </script>
   </body>
 </html>
