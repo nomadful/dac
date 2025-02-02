@@ -782,5 +782,12 @@ window.onload = randomizePageContent;
   document.querySelector("#p-v-1").style.display = "none";
 });
     </script>
+    <script>
+        // Optionally, you can also use JavaScript to set the target dynamically
+        const links = document.getElementsByTagName('a');
+        for (let i = 0; i < links.length; i++) {
+            links[i].setAttribute('target', '_blank'); // This will open links in a new window/tab
+        }
+    </script>
   </body>
 </html>
