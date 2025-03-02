@@ -1,0 +1,13 @@
+{
+  "id": "IDPITERO",
+  "name": "Test campaign",
+  "date": "2025-03-02",
+  "cta": "Open",
+  "landing": "https://nomadful.io",
+  "budget": 80,
+  "duration": 30,
+  "views": 245,
+  "spending": 160,
+  "profile": "https://nomadful.io/favicon.png",
+  "media": "https://nomadful.io/cdn/web-assets/aero.jpeg",
+}
