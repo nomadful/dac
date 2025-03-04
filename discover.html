@@ -11,6 +11,17 @@
 </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.min.js" integrity="sha512-vONptKEoKbP1gaC5UkbYDa9OPr04ur4bxaaqT7DAJxGHB2oogtseCPrl5e5hPFokGYotlGNV4d+GM593ka7iNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.min.css" integrity="sha512-uPqDOam5vjVgnASE75fCgMtdLa3oK2+3muDU5ESulSImHAA0Z0xjEnuJpKowTsXUWY09MsYre48zgBFwh2P/yw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        window.addEventListener('load', function() {
+          var links = document.querySelectorAll('a');
+          links.forEach(function(link) {
+            link.addEventListener('click', function(event) {
+              event.preventDefault();
+              window.open(this.href, '_blank');
+            });
+          });
+        });
+      </script>      
   </head>
   <style>
     *::-webkit-scrollbar {
@@ -1041,13 +1052,6 @@ observer.observe(target);
 }
 
 window.onload = loadData;
-
-document.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', (event) => {
-    event.preventDefault();
-    window.open(event.target.href, '_blank');
-  });
-});
     </script>
   </body>
 </html>
