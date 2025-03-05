@@ -204,7 +204,7 @@
           </div>
         </div>
         <div class="d-slide clip" id="a1">
-          <video id="admedia" style="width: 100%; height: 100%; background: #000000; object-fit: cover;" autoplay muted playsinline webkit-playsinline clicktofullscreen="false" loop></video>
+          <video id="admedia" style="width: 100%; height: 100%; background: #000000;" autoplay muted playsinline webkit-playsinline clicktofullscreen="false" loop></video>
           <div class="blbg touch-2" style="position: absolute; top: 80px; right: 20px; background: #FFFFFF20; width: 40px; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);">
             <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px;">
               <path xmlns="http://www.w3.org/2000/svg" d="M280-420v260q0 12.75-8.63 21.37-8.63 8.63-21.38 8.63-12.76 0-21.37-8.63Q220-147.25 220-160v-583.84q0-15.37 10.4-25.76 10.39-10.4 25.76-10.4h257.76q12.81 0 22.87 8.04 10.05 8.04 12.67 20.88L559.84-700h184q15.37 0 25.76 10.35Q780-679.3 780-664v288.01q0 15.3-10.4 25.64Q759.21-340 743.84-340H566.08q-12.81 0-22.87-8.04-10.05-8.04-12.67-20.88L520.16-420H280Zm306 20h134v-240H539.92q-12.8 0-22.86-8.04-10.06-8.04-12.68-20.88L494-720H280v240h260.08q12.8 0 22.86 8.04 10.06 8.04 12.68 20.88L586-400Zm-86-160Z"/>
@@ -1048,9 +1048,11 @@ observer.observe(target);
   if (data.media.endsWith('.jpg') || data.media.endsWith('.png') || data.media.endsWith('.jpeg') || data.media.endsWith('.gif')) {
     adMediaElement.poster = data.media;
     adMediaElement.src = "";
+    adMediaElement.style.objectFit = "cover";
   } else if (data.media.endsWith('.mp4') || data.media.endsWith('.webm')) {
     adMediaElement.src = data.media;
     adMediaElement.poster = "";
+    adMediaElement.style.objectFit = "none";
   }
     })
 }
