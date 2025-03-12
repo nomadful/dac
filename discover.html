@@ -1064,19 +1064,5 @@ document.querySelector("#a1-muted").addEventListener("click", () => {
   document.querySelector("#admedia").muted = true;
       });
     </script>
-    <script>
-    // Dynamically change the behavior of links with target="_blank"
-    const links = document.querySelectorAll('a[target="_blank"]');
-    links.forEach((link) => {
-      link.addEventListener('click', function(event) {
-        event.preventDefault();  // Prevent the default behavior
-        const url = this.href;
-        // Post the URL to the React Native WebView
-        if (window.ReactNativeWebView) {
-          window.ReactNativeWebView.postMessage(url);  // Send URL to React Native
-        }
-      });
-    });
-  </script>
   </body>
 </html>
