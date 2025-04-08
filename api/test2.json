@@ -3,5 +3,7 @@
   "title": "Test guide 2",
   "publisher": "https://upload.wikimedia.org/wikipedia/en/thumb/4/42/City_of_Melbourne_Logo.svg/360px-City_of_Melbourne_Logo.svg.png",
   "cover": "https://images.unsplash.com/photo-1711319551799-8787d7b8d40a?q=80&w=2728&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "colour": "linear-gradient(180deg, rgba(164,177,183,1) 0%, rgba(16,20,24,1) 100%)"
+  "colour": "linear-gradient(180deg, rgba(164,177,183,1) 0%, rgba(16,20,24,1) 100%)",
+  "time": 2,
+  "category": "Recipes"
 }
