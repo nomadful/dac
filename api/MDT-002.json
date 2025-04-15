@@ -1,0 +1,9 @@
+{
+  "id": "MDT-002",
+  "title": "Daily reflections",
+  "publisher": "https://nomadful.github.io/dac/cdn/p/meditate.png",
+  "cover": "https://nomadful.github.io/dac/cdn/i/daily-reflections.jpeg",
+  "colour": "linear-gradient(180deg, rgba(107, 174, 208, 1) 0%, rgba(16,20,24,1) 100%)",
+  "time": 5,
+  "category": "Meditation"
+}
