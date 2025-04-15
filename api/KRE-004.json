@@ -1,0 +1,9 @@
+{
+  "id": "KRE-004",
+  "title": "Golden milk tea recipe",
+  "publisher": "https://nomadful.github.io/dac/cdn/p/kitchenrepublic.png",
+  "cover": "https://nomadful.github.io/dac/cdn/i/golden-milk-tea-recipe.jpeg",
+  "colour": "linear-gradient(180deg, rgba(32, 24, 17,1) 0%, rgba(16,20,24,1) 100%)",
+  "time": 8,
+  "category": "Recipes"
+}
