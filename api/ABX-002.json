@@ -1,0 +1,9 @@
+{
+  "id": "ABX-002",
+  "title": "How to make homemade pizza",
+  "publisher": "https://nomadful.github.io/dac/cdn/p/arboox.png",
+  "cover": "https://nomadful.github.io/dac/cdn/i/how-to-make-homemade-pizza.jpeg",
+  "colour": "linear-gradient(180deg, rgba(180, 106, 31,1) 0%, rgba(16,20,24,1) 100%)",
+  "time": 10,
+  "category": "Recipes"
+}
