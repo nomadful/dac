@@ -1,0 +1,9 @@
+{
+  "id": "NMF-005",
+  "title": "Start meditating in ten minutes",
+  "publisher": "https://nomadful.github.io/dac/cdn/p/nomadful.png",
+  "cover": "https://nomadful.github.io/dac/cdn/i/start-meditating-in-ten-minutes.jpeg",
+  "colour": "linear-gradient(180deg, rgba(181, 156, 129, 1) 0%, rgba(16,20,24,1) 100%)",
+  "time": 10,
+  "category": "Meditation"
+}
