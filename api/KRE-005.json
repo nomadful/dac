@@ -1,0 +1,9 @@
+{
+  "id": "KRE-005",
+  "title": "How to make french toast",
+  "publisher": "https://nomadful.github.io/dac/cdn/p/kitchenrepublic.png",
+  "cover": "https://nomadful.github.io/dac/cdn/i/how-to-make-french-toast.jpeg",
+  "colour": "linear-gradient(180deg, rgba(184, 180, 182,1) 0%, rgba(16,20,24,1) 100%)",
+  "time": 10,
+  "category": "Recipes"
+}
