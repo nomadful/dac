@@ -1,0 +1,9 @@
+{
+  "id": "NMF-003",
+  "title": "Meditation techniques",
+  "publisher": "https://nomadful.github.io/dac/cdn/p/nomadful.png",
+  "cover": "https://nomadful.github.io/dac/cdn/i/meditation-techniques.jpeg",
+  "colour": "linear-gradient(180deg, rgba(40, 25, 20, 1) 0%, rgba(16,20,24,1) 100%)",
+  "time": 10,
+  "category": "Meditation"
+}
