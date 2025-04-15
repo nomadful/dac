@@ -1,0 +1,9 @@
+{
+  "id": "MOJ-001",
+  "title": "Four tasty egg recipes in ten minutes",
+  "publisher": "https://nomadful.github.io/dac/cdn/p/morningjoe.png",
+  "cover": "https://nomadful.github.io/dac/cdn/i/four-tasty-egg-recipes-in-ten-minutes.jpeg",
+  "colour": "linear-gradient(180deg, rgba(212, 196, 174,1) 0%, rgba(16,20,24,1) 100%)",
+  "time": 10,
+  "category": "Recipes"
+}
