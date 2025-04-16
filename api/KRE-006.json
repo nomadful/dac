@@ -1,0 +1,9 @@
+{
+  "id": "KRE-006",
+  "title": "Three salads, three ingredients special",
+  "publisher": "https://nomadful.github.io/dac/cdn/p/kitchenrepublic.png",
+  "cover": "https://nomadful.github.io/dac/cdn/i/three-salads-three-ingredients-special.jpeg",
+  "colour": "linear-gradient(180deg, rgba(26, 29, 29,1) 0%, rgba(16,20,24,1) 100%)",
+  "time": 8,
+  "category": "Recipes"
+}
