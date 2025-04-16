@@ -1,0 +1,9 @@
+{
+  "id": "DAF-006",
+  "title": "Three special noodle recipes",
+  "publisher": "https://nomadful.github.io/dac/cdn/p/dayfood.png",
+  "cover": "https://nomadful.github.io/dac/cdn/i/three-special-noodle-recipes.jpeg",
+  "colour": "linear-gradient(180deg, rgba(195, 174, 139,1) 0%, rgba(16,20,24,1) 100%)",
+  "time": 5,
+  "category": "Recipes"
+}
