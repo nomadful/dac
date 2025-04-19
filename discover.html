@@ -5,76 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Nomadful</title>
   <link rel="stylesheet" href="https://nomadful.io/style.css">
-  <meta name="theme-color" content="#070707" />
+  <meta name="theme-color" content="#101418" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/translater.js/1.0.12/translater.min.js" integrity="sha512-lVd8Ov3O+4Ubc0HN0IKhjbP4nOg7MDoQORI2tpkWSdRr3440zt31uR+lgO9QNDGrBUjq/hcsMjQDVux/02142w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/swiped-events/1.2.0/swiped-events.min.js" integrity="sha512-9+LGfjYbkKUzUhs1qyz0d/T5g/v4c+bCuYz2YHOuiAE3LLFnDbRUsMviLEzLRRGM1MXBswzb7UWZiysgkyHMdA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.min.js" integrity="sha512-vONptKEoKbP1gaC5UkbYDa9OPr04ur4bxaaqT7DAJxGHB2oogtseCPrl5e5hPFokGYotlGNV4d+GM593ka7iNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.min.css" integrity="sha512-uPqDOam5vjVgnASE75fCgMtdLa3oK2+3muDU5ESulSImHAA0Z0xjEnuJpKowTsXUWY09MsYre48zgBFwh2P/yw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <meta name='admaven-placement' content=BqdC9rja9>
   </head>
   <style>
-    *::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 0px;
-    height: 0px;
-    appearance: none;
-    display: none;
-    opacity: 0;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      background: #101418;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
     
-    .d-slider {
-  scroll-snap-type: y mandatory;  
-  -webkit-overflow-scrolling: touch;
-  overflow-y: scroll;
-  width: 100%;
-  height: 100vh;
-      box-sizing: border-box; 
-      -webkit-box-sizing: border-box;
-      z-index: 100000;
-      background: #000000;
-      margin-top: 0px;
-}
-
-.d-slide {
-  min-width: 100%;
-  height: 100%;
-  scroll-snap-align: start;
-  position: relative;
-  overflow: hidden;
-  background: #000000;
-}
-
-.d-slide video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    ::-webkit-scrollbar {
+      display: none;
+    }
     
-    #v-o {
+    .cat-cont {
+      margin-top: 80px;
       width: 100%;
-      height: calc(100% - 200px);
+      height: 44px;
+      white-space: nowrap;
+      position: relative;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      display: flex;
+      z-index: 10000;
+      margin-bottom: 30px;
+    }
+    
+    .cat-cont .item {
+      width: fit-content;
+      height: 44px;
+      background: #FFFFFF10;
+      border-radius: 50px;
+      display: flex;
+      float: left;
+      white-space: nowrap;
+    }
+    
+    .g-card {
+      width: calc(100% - 40px);
+      max-width: 450px;
+      height: auto;
+      aspect-ratio: 4/5;
+      border-radius: 12px;
+      border: solid 0.5px #444444;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+    }
+    
+    .g-scroll {
+      width: 100%;
+      height: auto;
+      white-space: nowrap;
+      position: relative;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      display: flex;
+    }
+    
+    .g-scroll .g-card {
+      width: 60%;
+      flex: 0 0 auto;
+      height: auto;
+      aspect-ratio: auto;
+      border-radius: 10px; 
+      border: none;
+      background: #FFFFFF10;
+    }
+    
+    .s-view {
+      width: 100%;
+      height: 0px;
       position: fixed;
       position: -webkit-fixed;
-      bottom: 100px;
-      right: 0px;
-      display: none;
-      z-index: 100000;
+      bottom: 0px;
+      z-index: 1000000;
+      border: none;
+      border-radius: 16px 16px 0px 0px;
+      transition: linear 100ms;
+      background: #101418;
     }
-    
-    .v-card {
-      width: calc(50% - 5px);
-  object-fit: cover;
-  border-radius: 10px;
-    }
-    
-    .plyr__controls {
-      display: none !important;
-    }
-    
-    video::-webkit-media-controls-fullscreen-button {
-    display: none !important;
-}
     
     .ad-btn {
   width: 100%;
@@ -98,107 +116,104 @@
   background: #FFFFFF30; 
   color: #FFFFFF;
 }
-    
-    .profile {
-      width: 100%; 
-      height: 0;
-      background: #101418;
-      position: fixed;
-      position: -webkit-fixed;
-      bottom: 0px;
-      z-index: 1000000;
-      border-radius: 16px 16px 0px 0px;
-      overflow: auto;
-      transition: linear 100ms;
-    }
-    
-    body {
-      user-select: none;
-  -webkit-user-select: none;
-  -webkit-tap-highlight-color: transparent;
-      background: #101418;
-      overflow: hidden;
-    }
   </style>
-  <body onload="document.querySelector('#d-slider').scrollTo(0, 0);">
+  <body onload="loadData();campaign();">
     <center>
-      <div class="d-slider" id="d-slider">
-        <div class="d-slide clip" id="s1">
-          <div id="target" style="width: 100%; height: 100%; background: #000000; object-fit: cover;" autoplay muted playsinline webkit-playsinline clicktofullscreen="false" loop></div>
-          <div class="blbg touch-2" style="position: absolute; top: 80px; left: 20px; background: #FFFFFF20; width: auto; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);" id="usr-t-1">
-              <img src="https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/assets/profile.png" style="width: 30px; height: 30px; border-radius: 30px; object-fit: cover; margin-left: 5px; margin-right: 5px; position: relative; top: 50%;  transform: translateY(-50%); float: left;">
-            <h4 style="color: #FFFFFF; font-weight: 500; height: 40px; position: relative; top: 50%; transform: translateY(-50%); margin-top: 2px; font-size: 0.9em; margin-right: 5px;">
-              relaxcapes
-              <br>
-              <span style="text-align: left; font-weight: 400; float: left; margin-top: -2px; font-size: 0.8em;">7 clips</span>
-            </h4>
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%;transform: translateY(-50%); margin-top: 0px; margin-right: 0px;">
-              <path xmlns="http://www.w3.org/2000/svg" d="M517.85-480 354.92-642.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69l179.77 179.77q5.61 5.62 7.92 11.85 2.31 6.23 2.31 13.46t-2.31 13.46q-2.31 6.23-7.92 11.85L397.08-274.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L517.85-480Z"/>
-            </svg>
-          </div>
-          <div class="blbg touch-2" style="position: absolute; top: 80px; right: 20px; background: #FFFFFF20; width: 40px; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px;" id="v1-muted">
-              <path d="m707.69-437.85-82.92 82.93q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L665.54-480l-82.93-82.92q-8.3-8.31-8.49-20.89-.2-12.57 8.49-21.27 8.7-8.69 21.08-8.69 12.39 0 21.08 8.69l82.92 82.93 82.92-82.93q8.31-8.3 20.89-8.5 12.58-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L749.84-480l82.93 82.92q8.31 8.31 8.5 20.89.19 12.57-8.5 21.27-8.69 8.69-21.08 8.69-12.38 0-21.08-8.69l-82.92-82.93ZM294.62-380H182.31q-15.46 0-25.81-10.35-10.34-10.34-10.34-25.81v-127.68q0-15.47 10.34-25.81Q166.85-580 182.31-580h112.31l119.69-119.69q14.38-14.38 33.11-6.58 18.73 7.81 18.73 28.27v396q0 20.46-18.73 28.27-18.73 7.8-33.11-6.58L294.62-380Zm111.53-226-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px; display: none;" id="v1-unmuted">
-              <path xmlns="http://www.w3.org/2000/svg" d="M753.85-481q0-82.5-44.21-150.58-44.21-68.09-118.56-101.88-11.54-5.46-17-16.31-5.46-10.84-1.34-22.12 4.95-12.03 17.18-16.72 12.23-4.7 24.77.77 90.46 41.07 144.81 123.6 54.34 82.52 54.34 183.23 0 100.7-54.34 183.24-54.35 82.54-144.81 123.61-12.54 5.47-24.77.77-12.23-4.69-17.18-16.72-4.12-11.28 1.34-22.12 5.46-10.85 17-16.31 74.35-33.79 118.56-101.88Q753.85-398.5 753.85-481ZM294.62-380H182.31q-15.37 0-25.76-10.4-10.39-10.39-10.39-25.76v-127.68q0-15.37 10.39-25.76 10.39-10.4 25.76-10.4h112.31l119.69-119.69q14.38-14.38 33.11-6.49 18.73 7.89 18.73 28.18v396q0 20.29-18.73 28.18-18.73 7.89-33.11-6.49L294.62-380Zm351.53-99.96q0 37.43-15.54 70.85-15.53 33.42-41.88 56.19-8.5 5.69-17.85 1.15-9.34-4.54-9.34-15v-228.46q0-10.46 9.34-15 9.35-4.54 17.85 1.09 26.35 23.45 41.88 57.6 15.54 34.16 15.54 71.58ZM406.15-606l-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
-            </svg>
+      <div style="width: 100%; height: auto; aspect-ratio: 3/4; position: absolute; top: 0; background: #101418; z-index: -1; transition: linear 100ms;" id="g-f-bg"></div>
+      <div class="cat-cont">
+        <div class="item touch-2" style="margin-left: 20px; background: #FFFFFF50; color: #FFFFFFF; font-weight: 600;" id="i-featured">
+          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="width: 23px; float: left; margin-left: 8px; margin-right: 4px; position: relative; top: 50%; transform: translateY(-50%); fill: #FFFFFF;" id="svg-f">
+            <path d="m480-292.46-155.61 93.84q-8.7 5.08-17.43 4.27-8.73-.81-15.8-5.88-7.08-5.08-10.93-13.27-3.84-8.19-1.23-18.12l41.31-176.69-137.38-118.92q-7.7-6.69-9.81-15.5-2.12-8.81 1.11-17.12 3.23-8.3 9.31-13.57t16.62-6.89l181.3-15.84L451.85-763q3.84-9.31 11.65-13.77 7.81-4.46 16.5-4.46 8.69 0 16.5 4.46 7.81 4.46 11.65 13.77l70.39 166.85 181.3 15.84q10.54 1.62 16.62 6.89 6.08 5.27 9.31 13.57 3.23 8.31 1.11 17.12-2.11 8.81-9.81 15.5L639.69-408.31 681-231.62q2.61 9.93-1.23 18.12-3.85 8.19-10.93 13.27-7.07 5.07-15.8 5.88-8.73.81-17.43-4.27L480-292.46Z"/>
+          </svg>
+          <p style="line-height: 44px; margin-top: 0px; margin-right: 12px;">
+             Featured
+          </p>
+        </div>
+        <div class="item touch-2" style="margin-left: 10px; color: #FFFFFF80" id="i-recipes">
+          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="width: 20px; float: left; margin-left: 8px; margin-right: 6px; position: relative; top: 50%; transform: translateY(-50%); fill: #FFFFFF80;" id="svg-r">
+            <path xmlns="http://www.w3.org/2000/svg" d="M337.69-163.85q-90.69-33-158.03-99.61-67.35-66.62-76.2-160.38-1.15-14.7 8.43-25.43Q121.46-460 136.16-460H180v-292.46q0-13.6 9.04-23.57t22.5-11.58l622-69.16q11.3-1.61 18.88 5.62 7.58 7.22 7.58 18.47 0 8.83-6.46 15.6t-15.16 7.77l-419.92 46.7v76.07h417.69q10.34 0 17.09 6.75 6.76 6.75 6.76 17.08 0 10.33-6.76 17.09-6.75 6.77-17.09 6.77H418.46V-460h405.38q14.55 0 24.39 10.73 9.85 10.73 8.69 25.43-8.85 94.15-76.38 160.96-67.54 66.8-159 99.03v27.55q0 15.61-10.4 25.95Q600.75-100 585.38-100H373.85q-15.37 0-25.76-10.4-10.4-10.39-10.4-25.76v-27.69Zm-14.61-522.69h47.69v-70.61L323.08-752v65.46Zm-95.39 0h47.7v-60l-47.7 4.8v55.2ZM323.08-460h47.69v-178.85h-47.69V-460Zm-95.39 0h47.7v-178.85h-47.7V-460Z"/>
+          </svg>
+          <p style="line-height: 44px; margin-top: 0px; margin-right: 12px;">
+             Recipes
+          </p>
+        </div>
+        <div class="item touch-2" style="margin-left: 10px; color: #FFFFFF80;" id="i-cities">
+          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="width: 23px; float: left; margin-left: 8px; margin-right: 6px; position: relative; top: 50%; transform: translateY(-50%); fill: #FFFFFF80;" id="svg-c">
+            <path xmlns="http://www.w3.org/2000/svg" d="M380-140v-247.69q0-29.83 21.24-51.07Q422.48-460 452.31-460h226.15q0-29.15 20.78-49.96 20.78-20.81 49.96-20.81t49.99 20.79Q820-489.19 820-460v320H635.38v-130.77q0-14.69-10.17-25.04-10.17-10.34-25.21-10.34-14.69 0-25.04 10.34-10.34 10.35-10.34 25.04V-140H380Zm-240 0v-436.54q0-22.56 12.63-41.06 12.63-18.51 33.37-26.63l389.61-149.38q18.08-7.23 33.54 3.64 15.46 10.87 15.46 29.89V-520H428.46q-45.19 0-76.82 31.64Q320-456.73 320-411.54V-140H140Z"/>
+          </svg>
+          <p style="line-height: 44px; margin-top: 0px; margin-right: 12px;">
+             Cities
+          </p>
+        </div>
+        <div class="item touch-2" style="margin-left: 10px; color: #FFFFFF80;" id="i-meditation">
+          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="width: 23px; float: left; margin-left: 8px; margin-right: 6px; position: relative; top: 50%; transform: translateY(-50%); fill: #FFFFFF80;" id="svg-m">
+            <path xmlns="http://www.w3.org/2000/svg" d="M272-173.85q-26.15 0-44.08-17.15Q210-208.15 210-234.31q0-18.31 10.46-33.34 10.46-15.04 27.39-21.89L410-353.85v-120q-57.62 66.93-115.31 100.77-57.69 33.85-129.61 43.39-12.77 1.61-22.39-7-9.61-8.62-9.61-21.39 0-13.15 8.5-22.07 8.5-8.93 21.65-10.54 54.62-8 101.77-34.96t86.69-73.12l54-63.23q10.46-12.08 24.54-18.5 14.08-6.42 29.77-6.42h40q15.69 0 29.77 6.42t24.54 18.5l54 63.23q39.54 46.16 86.69 73.12 47.15 26.96 101.77 34.96 13.15 1.61 21.65 10.54 8.5 8.92 8.5 22.07 0 12.77-9.61 21.39-9.62 8.61-22.39 7-71.92-9.54-129.61-43.39Q607.62-406.92 550-473.85v120l162.15 64.31q16.93 6.85 27.39 21.89Q750-252.62 750-234.31q0 26.16-17.92 43.31-17.93 17.15-44.08 17.15H400v-13.07q0-24.85 15.27-40.12 15.27-15.27 40.11-15.27H580q9 0 14.5-5.5t5.5-14.5q0-9-5.5-14.5t-14.5-5.5H455.38q-40.84 0-68.11 27.27Q360-227.77 360-186.92v13.07h-88Zm208-460.76q-30.69 0-52.27-21.58-21.58-21.58-21.58-52.27 0-30.69 21.58-52.27 21.58-21.58 52.27-21.58 30.69 0 52.27 21.58 21.58 21.58 21.58 52.27 0 30.69-21.58 52.27-21.58 21.58-52.27 21.58Z"/>
+          </svg>
+          <p style="line-height: 44px; margin-top: 0px; margin-right: 12px;">
+             Meditation
+          </p>
+        </div>
+        <div class="item touch-2" style="margin-left: 10px; color: #FFFFFF80;" id="i-health">
+          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="width: 22px; float: left; margin-left: 8px; margin-right: 6px; position: relative; top: 50%; transform: translateY(-50%); fill: #FFFFFF80;" id="svg-h">
+            <path xmlns="http://www.w3.org/2000/svg" d="M430-450v69.62q0 12.76 8.81 21.57t21.57 8.81h39.24q13.15 0 21.76-8.81 8.62-8.81 8.62-21.57V-450h69.62q13.15 0 21.76-8.81 8.62-8.81 8.62-21.57v-39.24q0-13.15-8.62-21.76-8.61-8.62-21.76-8.62H530v-69.62q0-13.15-8.62-21.76-8.61-8.62-21.76-8.62h-39.24q-12.76 0-21.57 8.62-8.81 8.61-8.81 21.76V-550h-69.62q-12.76 0-21.57 8.62-8.81 8.61-8.81 21.76v39.24q0 12.76 8.81 21.57t21.57 8.81H430Zm50 344.84q-6.23 0-12.23-1t-11.62-3q-126.53-45-201.34-159.57Q180-383.31 180-516v-180.15q0-22.7 13.16-40.96 13.15-18.27 33.84-26.5l227.69-85q12.85-4.62 25.31-4.62 12.46 0 25.31 4.62l227.69 85q20.69 8.23 33.84 26.5Q780-718.85 780-696.15V-516q0 132.69-74.81 247.27-74.81 114.57-201.34 159.57-5.62 2-11.62 3-6 1-12.23 1Z"/>
+          </svg>
+          <p style="line-height: 44px; margin-top: 0px; margin-right: 12px;">
+             Health
+          </p>
+        </div>
+        <div class="item" style="background: transparent;">
+          <div style="width: 20px;"></div>
+        </div>
+      </div>
+      <div id="g-featured">
+        <div class="g-card touch-2" style="background: #FFFFFF10;" id="g-card">
+          <div style="width: 100%; height: 100%; position: relative;">
+            <img src="https://nomadful.io/cdn/sounds/not-playing.png" style="width: auto; height: 60px; position: absolute; top: 0px; left: 20px;" id="g-publisher">
+            <div style="width: 100%; height: auto; background: rgb(16,20,24); background: linear-gradient(180deg, rgba(16,20,24,0) 0%, rgba(16,20,24,1) 100%); position: absolute; bottom: 0px; margin: 0; left: 0; right: 0; margin-left: auto; margin-right: auto;">
+              <div style="width: calc(100% - 40px);">
+                <h1 style="text-align: left; margin-bottom: 0px;" id="g-title">
+                  Story title
+                </h1>
+                <p style="text-transform: uppercase; text-align: left; color: #ABABAB; margin-bottom: 4px; margin-top: 6px;">
+                  <span style="font-weight: 600;" id="g-category">Category</span> • <span id="g-time">0</span> min
+                </p>
+                <button class="blbg" style="width: 100%; background: #FFFFFF; color: #101418; float: left; margin-bottom: 24px;">
+                  Read story
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="d-slide clip" id="s2">
-          <div id="target2" style="width: 100%; height: 100%; background: #000000; object-fit: cover;" autoplay muted playsinline webkit-playsinline clicktofullscreen="false" loop></div>
-          <div class="blbg touch-2" style="position: absolute; top: 80px; left: 20px; background: #FFFFFF20; width: auto; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);" id="usr-t-2">
-              <img src="https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/animals/assets/profile.png" style="width: 30px; height: 30px; border-radius: 30px; object-fit: cover; margin-left: 5px; margin-right: 5px; position: relative; top: 50%;  transform: translateY(-50%); float: left;">
-            <h4 style="color: #FFFFFF; font-weight: 500; height: 40px; position: relative; top: 50%; transform: translateY(-50%); margin-top: 2px; font-size: 0.9em; margin-right: 5px;">
-              animals
-              <br>
-              <span style="text-align: left; font-weight: 400; float: left; margin-top: -2px; font-size: 0.8em;">5 clips</span>
-            </h4>
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%;transform: translateY(-50%); margin-top: 0px; margin-right: 0px;">
-              <path xmlns="http://www.w3.org/2000/svg" d="M517.85-480 354.92-642.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69l179.77 179.77q5.61 5.62 7.92 11.85 2.31 6.23 2.31 13.46t-2.31 13.46q-2.31 6.23-7.92 11.85L397.08-274.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L517.85-480Z"/>
-            </svg>
-          </div>
-          <div class="blbg touch-2" style="position: absolute; top: 80px; right: 20px; background: #FFFFFF20; width: 40px; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px;" id="v2-muted">
-              <path d="m707.69-437.85-82.92 82.93q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L665.54-480l-82.93-82.92q-8.3-8.31-8.49-20.89-.2-12.57 8.49-21.27 8.7-8.69 21.08-8.69 12.39 0 21.08 8.69l82.92 82.93 82.92-82.93q8.31-8.3 20.89-8.5 12.58-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L749.84-480l82.93 82.92q8.31 8.31 8.5 20.89.19 12.57-8.5 21.27-8.69 8.69-21.08 8.69-12.38 0-21.08-8.69l-82.92-82.93ZM294.62-380H182.31q-15.46 0-25.81-10.35-10.34-10.34-10.34-25.81v-127.68q0-15.47 10.34-25.81Q166.85-580 182.31-580h112.31l119.69-119.69q14.38-14.38 33.11-6.58 18.73 7.81 18.73 28.27v396q0 20.46-18.73 28.27-18.73 7.8-33.11-6.58L294.62-380Zm111.53-226-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px; display: none;" id="v2-unmuted">
-              <path xmlns="http://www.w3.org/2000/svg" d="M753.85-481q0-82.5-44.21-150.58-44.21-68.09-118.56-101.88-11.54-5.46-17-16.31-5.46-10.84-1.34-22.12 4.95-12.03 17.18-16.72 12.23-4.7 24.77.77 90.46 41.07 144.81 123.6 54.34 82.52 54.34 183.23 0 100.7-54.34 183.24-54.35 82.54-144.81 123.61-12.54 5.47-24.77.77-12.23-4.69-17.18-16.72-4.12-11.28 1.34-22.12 5.46-10.85 17-16.31 74.35-33.79 118.56-101.88Q753.85-398.5 753.85-481ZM294.62-380H182.31q-15.37 0-25.76-10.4-10.39-10.39-10.39-25.76v-127.68q0-15.37 10.39-25.76 10.39-10.4 25.76-10.4h112.31l119.69-119.69q14.38-14.38 33.11-6.49 18.73 7.89 18.73 28.18v396q0 20.29-18.73 28.18-18.73 7.89-33.11-6.49L294.62-380Zm351.53-99.96q0 37.43-15.54 70.85-15.53 33.42-41.88 56.19-8.5 5.69-17.85 1.15-9.34-4.54-9.34-15v-228.46q0-10.46 9.34-15 9.35-4.54 17.85 1.09 26.35 23.45 41.88 57.6 15.54 34.16 15.54 71.58ZM406.15-606l-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
-            </svg>
+        <div style="clear: both; height: 20px;"></div>
+        <div class="g-card touch-2" style="background: #FFFFFF10;" id="g-card-2">
+          <div style="width: 100%; height: 100%; position: relative;">
+            <img src="https://nomadful.io/cdn/sounds/not-playing.png" style="width: auto; height: 60px; position: absolute; top: 0px; left: 20px;" id="g-publisher-2">
+            <div style="width: 100%; height: auto; background: rgb(16,20,24); background: linear-gradient(180deg, rgba(16,20,24,0) 0%, rgba(16,20,24,1) 100%); position: absolute; bottom: 0px; margin: 0; left: 0; right: 0; margin-left: auto; margin-right: auto;">
+              <div style="width: calc(100% - 40px);">
+                <h1 style="text-align: left; margin-bottom: 0px;" id="g-title-2">
+                  Story title
+                </h1>
+                <p style="text-transform: uppercase; text-align: left; color: #ABABAB; margin-bottom: 4px; margin-top: 6px;">
+                  <span style="font-weight: 600;" id="g-category-2">Category</span> • <span id="g-time-2">0</span> min
+                </p>
+                <button class="blbg" style="width: 100%; background: #FFFFFF; color: #101418; float: left; margin-bottom: 24px;">
+                  Read story
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="d-slide clip" id="s3">
-          <div id="target3" style="width: 100%; height: 100%; background: #000000; object-fit: cover;" autoplay muted playsinline webkit-playsinline clicktofullscreen="false" loop></div>
-          <div class="blbg touch-2" style="position: absolute; top: 80px; left: 20px; background: #FFFFFF20; width: auto; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);" id="usr-t-3">
-              <img src="https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/quotes/assets/profile.png" style="width: 30px; height: 30px; border-radius: 30px; object-fit: cover; margin-left: 5px; margin-right: 5px; position: relative; top: 50%;  transform: translateY(-50%); float: left;">
-            <h4 style="color: #FFFFFF; font-weight: 500; height: 40px; position: relative; top: 50%; transform: translateY(-50%); margin-top: 2px; font-size: 0.9em; margin-right: 5px;">
-              quotes
-              <br>
-              <span style="text-align: left; font-weight: 400; float: left; margin-top: -2px; font-size: 0.8em;">4 clips</span>
-            </h4>
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%;transform: translateY(-50%); margin-top: 0px; margin-right: 0px;">
-              <path xmlns="http://www.w3.org/2000/svg" d="M517.85-480 354.92-642.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69l179.77 179.77q5.61 5.62 7.92 11.85 2.31 6.23 2.31 13.46t-2.31 13.46q-2.31 6.23-7.92 11.85L397.08-274.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L517.85-480Z"/>
-            </svg>
-          </div>
-          <div class="blbg touch-2" style="position: absolute; top: 80px; right: 20px; background: #FFFFFF20; width: 40px; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px;" id="v3-muted">
-              <path d="m707.69-437.85-82.92 82.93q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L665.54-480l-82.93-82.92q-8.3-8.31-8.49-20.89-.2-12.57 8.49-21.27 8.7-8.69 21.08-8.69 12.39 0 21.08 8.69l82.92 82.93 82.92-82.93q8.31-8.3 20.89-8.5 12.58-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L749.84-480l82.93 82.92q8.31 8.31 8.5 20.89.19 12.57-8.5 21.27-8.69 8.69-21.08 8.69-12.38 0-21.08-8.69l-82.92-82.93ZM294.62-380H182.31q-15.46 0-25.81-10.35-10.34-10.34-10.34-25.81v-127.68q0-15.47 10.34-25.81Q166.85-580 182.31-580h112.31l119.69-119.69q14.38-14.38 33.11-6.58 18.73 7.81 18.73 28.27v396q0 20.46-18.73 28.27-18.73 7.8-33.11-6.58L294.62-380Zm111.53-226-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px; display: none;" id="v3-unmuted">
-              <path xmlns="http://www.w3.org/2000/svg" d="M753.85-481q0-82.5-44.21-150.58-44.21-68.09-118.56-101.88-11.54-5.46-17-16.31-5.46-10.84-1.34-22.12 4.95-12.03 17.18-16.72 12.23-4.7 24.77.77 90.46 41.07 144.81 123.6 54.34 82.52 54.34 183.23 0 100.7-54.34 183.24-54.35 82.54-144.81 123.61-12.54 5.47-24.77.77-12.23-4.69-17.18-16.72-4.12-11.28 1.34-22.12 5.46-10.85 17-16.31 74.35-33.79 118.56-101.88Q753.85-398.5 753.85-481ZM294.62-380H182.31q-15.37 0-25.76-10.4-10.39-10.39-10.39-25.76v-127.68q0-15.37 10.39-25.76 10.39-10.4 25.76-10.4h112.31l119.69-119.69q14.38-14.38 33.11-6.49 18.73 7.89 18.73 28.18v396q0 20.29-18.73 28.18-18.73 7.89-33.11-6.49L294.62-380Zm351.53-99.96q0 37.43-15.54 70.85-15.53 33.42-41.88 56.19-8.5 5.69-17.85 1.15-9.34-4.54-9.34-15v-228.46q0-10.46 9.34-15 9.35-4.54 17.85 1.09 26.35 23.45 41.88 57.6 15.54 34.16 15.54 71.58ZM406.15-606l-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
-            </svg>
-          </div>
-        </div>
-        <div class="d-slide clip" id="a1">
+        <div style="clear: both; height: 20px;"></div>
+        <div class="g-card" style="aspect-ratio: 9/16;">
           <video id="admedia" style="width: 100%; background: #000000; object-fit: cover;" autoplay muted="true" playsinline webkit-playsinline clicktofullscreen="false" loop></video>
           <a href="https://nomadful.io/report">
-          <div class="blbg touch-2" style="position: absolute; top: 80px; left: 20px; background: #FFFFFF20; width: 40px; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);">
+          <div class="blbg touch-2" style="position: absolute; top: 10px; left: 20px; background: #FFFFFF20; width: 40px; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);">
             <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px;">
               <path xmlns="http://www.w3.org/2000/svg" d="M280-420v260q0 12.75-8.63 21.37-8.63 8.63-21.38 8.63-12.76 0-21.37-8.63Q220-147.25 220-160v-583.84q0-15.37 10.4-25.76 10.39-10.4 25.76-10.4h257.76q12.81 0 22.87 8.04 10.05 8.04 12.67 20.88L559.84-700h184q15.37 0 25.76 10.35Q780-679.3 780-664v288.01q0 15.3-10.4 25.64Q759.21-340 743.84-340H566.08q-12.81 0-22.87-8.04-10.05-8.04-12.67-20.88L520.16-420H280Zm306 20h134v-240H539.92q-12.8 0-22.86-8.04-10.06-8.04-12.68-20.88L494-720H280v240h260.08q12.8 0 22.86 8.04 10.06 8.04 12.68 20.88L586-400Zm-86-160Z"/>
             </svg>
           </div>
           </a>
-          <div class="blbg touch-2" style="position: absolute; top: 80px; right: 20px; background: #FFFFFF20; width: 40px; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);">
+          <div class="blbg touch-2" style="position: absolute; top: 10px; right: 20px; background: #FFFFFF20; width: 40px; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);">
             <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px;" id="a1-muted">
               <path d="m707.69-437.85-82.92 82.93q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L665.54-480l-82.93-82.92q-8.3-8.31-8.49-20.89-.2-12.57 8.49-21.27 8.7-8.69 21.08-8.69 12.39 0 21.08 8.69l82.92 82.93 82.92-82.93q8.31-8.3 20.89-8.5 12.58-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L749.84-480l82.93 82.92q8.31 8.31 8.5 20.89.19 12.57-8.5 21.27-8.69 8.69-21.08 8.69-12.38 0-21.08-8.69l-82.92-82.93ZM294.62-380H182.31q-15.46 0-25.81-10.35-10.34-10.34-10.34-25.81v-127.68q0-15.47 10.34-25.81Q166.85-580 182.31-580h112.31l119.69-119.69q14.38-14.38 33.11-6.58 18.73 7.81 18.73 28.27v396q0 20.46-18.73 28.27-18.73 7.8-33.11-6.58L294.62-380Zm111.53-226-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
             </svg>
@@ -206,9 +221,9 @@
               <path xmlns="http://www.w3.org/2000/svg" d="M753.85-481q0-82.5-44.21-150.58-44.21-68.09-118.56-101.88-11.54-5.46-17-16.31-5.46-10.84-1.34-22.12 4.95-12.03 17.18-16.72 12.23-4.7 24.77.77 90.46 41.07 144.81 123.6 54.34 82.52 54.34 183.23 0 100.7-54.34 183.24-54.35 82.54-144.81 123.61-12.54 5.47-24.77.77-12.23-4.69-17.18-16.72-4.12-11.28 1.34-22.12 5.46-10.85 17-16.31 74.35-33.79 118.56-101.88Q753.85-398.5 753.85-481ZM294.62-380H182.31q-15.37 0-25.76-10.4-10.39-10.39-10.39-25.76v-127.68q0-15.37 10.39-25.76 10.39-10.4 25.76-10.4h112.31l119.69-119.69q14.38-14.38 33.11-6.49 18.73 7.89 18.73 28.18v396q0 20.29-18.73 28.18-18.73 7.89-33.11-6.49L294.62-380Zm351.53-99.96q0 37.43-15.54 70.85-15.53 33.42-41.88 56.19-8.5 5.69-17.85 1.15-9.34-4.54-9.34-15v-228.46q0-10.46 9.34-15 9.35-4.54 17.85 1.09 26.35 23.45 41.88 57.6 15.54 34.16 15.54 71.58ZM406.15-606l-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
             </svg>
           </div>
-          <div style="width: 100%; height: 190px; background: rgb(12,22,32); background: linear-gradient(0deg, #101418 0%, #10141800 100%); position: absolute; bottom: 0px;">
+          <div style="width: 100%; height: 100px; background: rgb(12,22,32); background: linear-gradient(0deg, #101418 0%, #10141800 100%); position: absolute; bottom: 0px;">
             <div style="width: 100%; height: 100%; position: relative;">
-              <div style="width: 100%; height: 70px; position: absolute; top: 0px;">
+              <div style="width: 100%; height: 70px; position: absolute; bottom: 20px;">
                 <div style="width: calc(100% - 40px);">
                   <img src="..." id="adimg" style="width: 60px; height: 60px; object-fit: cover; position: absolute; top: 50%; transform: translateY(-50%); left: 20px; border-radius: 60px;">
                   <div style="display: inline-block; text-align: left; height: 60px; margin: 0; float: left; position: relative; left: 72px;">
@@ -220,7 +235,7 @@
                   </p>
                 </div>
                   <a href="" id="adlanding" target="_blank">
-                  <button class="touch-2 ad-btn" style="width: auto; height: 40px; position: absolute; top: 50%; transform: translateY(-50%); right: 20px; float: right; border-radius: 50px; background: #FFFFFF; color: #101418;">
+                  <button class="touch-2 ad-btn" style="width: auto; height: 40px; position: absolute; top: 50%; transform: translateY(-50%); right: 20px; float: right; border-radius: 50px; background: #FFFFFF; color: #101418; z-index: 1000;">
                     <span style="padding-left: 12px; padding-right: 12px;" id="adcta">
                       Website
                     </span>
@@ -231,913 +246,1201 @@
             </div>
           </div>
         </div>
-        <div class="d-slide clip" id="s4">
-          <div id="target4" style="width: 100%; height: 100%; background: #000000; object-fit: cover;" autoplay muted playsinline webkit-playsinline clicktofullscreen="false" loop></div>
-          <div class="blbg touch-2" style="position: absolute; top: 80px; left: 20px; background: #FFFFFF20; width: auto; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);" id="usr-t-4">
-              <img src="https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/nature/assets/profile.png" style="width: 30px; height: 30px; border-radius: 30px; object-fit: cover; margin-left: 5px; margin-right: 5px; position: relative; top: 50%;  transform: translateY(-50%); float: left;">
-            <h4 style="color: #FFFFFF; font-weight: 500; height: 40px; position: relative; top: 50%; transform: translateY(-50%); margin-top: 2px; font-size: 0.9em; margin-right: 5px;">
-              nature
-              <br>
-              <span style="text-align: left; font-weight: 400; float: left; margin-top: -2px; font-size: 0.8em;">4 clips</span>
-            </h4>
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%;transform: translateY(-50%); margin-top: 0px; margin-right: 0px;">
-              <path xmlns="http://www.w3.org/2000/svg" d="M517.85-480 354.92-642.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69l179.77 179.77q5.61 5.62 7.92 11.85 2.31 6.23 2.31 13.46t-2.31 13.46q-2.31 6.23-7.92 11.85L397.08-274.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L517.85-480Z"/>
-            </svg>
-          </div>
-          <div class="blbg touch-2" style="position: absolute; top: 80px; right: 20px; background: #FFFFFF20; width: 40px; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px;" id="v4-muted">
-              <path d="m707.69-437.85-82.92 82.93q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L665.54-480l-82.93-82.92q-8.3-8.31-8.49-20.89-.2-12.57 8.49-21.27 8.7-8.69 21.08-8.69 12.39 0 21.08 8.69l82.92 82.93 82.92-82.93q8.31-8.3 20.89-8.5 12.58-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L749.84-480l82.93 82.92q8.31 8.31 8.5 20.89.19 12.57-8.5 21.27-8.69 8.69-21.08 8.69-12.38 0-21.08-8.69l-82.92-82.93ZM294.62-380H182.31q-15.46 0-25.81-10.35-10.34-10.34-10.34-25.81v-127.68q0-15.47 10.34-25.81Q166.85-580 182.31-580h112.31l119.69-119.69q14.38-14.38 33.11-6.58 18.73 7.81 18.73 28.27v396q0 20.46-18.73 28.27-18.73 7.8-33.11-6.58L294.62-380Zm111.53-226-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px; display: none;" id="v4-unmuted">
-              <path xmlns="http://www.w3.org/2000/svg" d="M753.85-481q0-82.5-44.21-150.58-44.21-68.09-118.56-101.88-11.54-5.46-17-16.31-5.46-10.84-1.34-22.12 4.95-12.03 17.18-16.72 12.23-4.7 24.77.77 90.46 41.07 144.81 123.6 54.34 82.52 54.34 183.23 0 100.7-54.34 183.24-54.35 82.54-144.81 123.61-12.54 5.47-24.77.77-12.23-4.69-17.18-16.72-4.12-11.28 1.34-22.12 5.46-10.85 17-16.31 74.35-33.79 118.56-101.88Q753.85-398.5 753.85-481ZM294.62-380H182.31q-15.37 0-25.76-10.4-10.39-10.39-10.39-25.76v-127.68q0-15.37 10.39-25.76 10.39-10.4 25.76-10.4h112.31l119.69-119.69q14.38-14.38 33.11-6.49 18.73 7.89 18.73 28.18v396q0 20.29-18.73 28.18-18.73 7.89-33.11-6.49L294.62-380Zm351.53-99.96q0 37.43-15.54 70.85-15.53 33.42-41.88 56.19-8.5 5.69-17.85 1.15-9.34-4.54-9.34-15v-228.46q0-10.46 9.34-15 9.35-4.54 17.85 1.09 26.35 23.45 41.88 57.6 15.54 34.16 15.54 71.58ZM406.15-606l-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
-            </svg>
-          </div>
-        </div>
-        <div class="d-slide clip" id="s5">
-          <div id="target5" style="width: 100%; height: 100%; background: #000000; object-fit: cover;" autoplay muted playsinline webkit-playsinline clicktofullscreen="false" loop></div>
-          <div class="blbg touch-2" style="position: absolute; top: 80px; left: 20px; background: #FFFFFF20; width: auto; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);" id="usr-t-5">
-              <img src="https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/meditate/assets/profile.png" style="width: 30px; height: 30px; border-radius: 30px; object-fit: cover; margin-left: 5px; margin-right: 5px; position: relative; top: 50%;  transform: translateY(-50%); float: left;">
-            <h4 style="color: #FFFFFF; font-weight: 500; height: 40px; position: relative; top: 50%; transform: translateY(-50%); margin-top: 2px; font-size: 0.9em; margin-right: 5px;">
-              meditate
-              <br>
-              <span style="text-align: left; font-weight: 400; float: left; margin-top: -2px; font-size: 0.8em;">1 clip</span>
-            </h4>
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%;transform: translateY(-50%); margin-top: 0px; margin-right: 0px;">
-              <path xmlns="http://www.w3.org/2000/svg" d="M517.85-480 354.92-642.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69l179.77 179.77q5.61 5.62 7.92 11.85 2.31 6.23 2.31 13.46t-2.31 13.46q-2.31 6.23-7.92 11.85L397.08-274.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L517.85-480Z"/>
-            </svg>
-          </div>
-          <div class="blbg touch-2" style="position: absolute; top: 80px; right: 20px; background: #FFFFFF20; width: 40px; height: 40px; z-index: 1000000; display: flex; outline: none; border: none; backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px);">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px !important; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px;" id="v5-muted">
-              <path d="m707.69-437.85-82.92 82.93q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L665.54-480l-82.93-82.92q-8.3-8.31-8.49-20.89-.2-12.57 8.49-21.27 8.7-8.69 21.08-8.69 12.39 0 21.08 8.69l82.92 82.93 82.92-82.93q8.31-8.3 20.89-8.5 12.58-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L749.84-480l82.93 82.92q8.31 8.31 8.5 20.89.19 12.57-8.5 21.27-8.69 8.69-21.08 8.69-12.38 0-21.08-8.69l-82.92-82.93ZM294.62-380H182.31q-15.46 0-25.81-10.35-10.34-10.34-10.34-25.81v-127.68q0-15.47 10.34-25.81Q166.85-580 182.31-580h112.31l119.69-119.69q14.38-14.38 33.11-6.58 18.73 7.81 18.73 28.27v396q0 20.46-18.73 28.27-18.73 7.8-33.11-6.58L294.62-380Zm111.53-226-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 26px; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0px; display: none;" id="v5-unmuted">
-              <path xmlns="http://www.w3.org/2000/svg" d="M753.85-481q0-82.5-44.21-150.58-44.21-68.09-118.56-101.88-11.54-5.46-17-16.31-5.46-10.84-1.34-22.12 4.95-12.03 17.18-16.72 12.23-4.7 24.77.77 90.46 41.07 144.81 123.6 54.34 82.52 54.34 183.23 0 100.7-54.34 183.24-54.35 82.54-144.81 123.61-12.54 5.47-24.77.77-12.23-4.69-17.18-16.72-4.12-11.28 1.34-22.12 5.46-10.85 17-16.31 74.35-33.79 118.56-101.88Q753.85-398.5 753.85-481ZM294.62-380H182.31q-15.37 0-25.76-10.4-10.39-10.39-10.39-25.76v-127.68q0-15.37 10.39-25.76 10.39-10.4 25.76-10.4h112.31l119.69-119.69q14.38-14.38 33.11-6.49 18.73 7.89 18.73 28.18v396q0 20.29-18.73 28.18-18.73 7.89-33.11-6.49L294.62-380Zm351.53-99.96q0 37.43-15.54 70.85-15.53 33.42-41.88 56.19-8.5 5.69-17.85 1.15-9.34-4.54-9.34-15v-228.46q0-10.46 9.34-15 9.35-4.54 17.85 1.09 26.35 23.45 41.88 57.6 15.54 34.16 15.54 71.58ZM406.15-606l-86 86h-114v80h114l86 86v-252Zm-100 126Z"/>
-            </svg>
+        <div style="clear: both; height: 20px;"></div>
+        <div class="g-card touch-2" style="background: #FFFFFF10;" id="g-card-3">
+          <div style="width: 100%; height: 100%; position: relative;">
+            <img src="https://nomadful.io/cdn/sounds/not-playing.png" style="width: auto; height: 60px; position: absolute; top: 0px; left: 20px;" id="g-publisher-3">
+            <div style="width: 100%; height: auto; background: rgb(16,20,24); background: linear-gradient(180deg, rgba(16,20,24,0) 0%, rgba(16,20,24,1) 100%); position: absolute; bottom: 0px; margin: 0; left: 0; right: 0; margin-left: auto; margin-right: auto;">
+              <div style="width: calc(100% - 40px);">
+                <h1 style="text-align: left; margin-bottom: 0px;" id="g-title-3">
+                  Story title
+                </h1>
+                <p style="text-transform: uppercase; text-align: left; color: #ABABAB; margin-bottom: 4px; margin-top: 6px;">
+                  <span style="font-weight: 600;" id="g-category-3">Category</span> • <span id="g-time-3">0</span> min
+                </p>
+                <button class="blbg" style="width: 100%; background: #FFFFFF; color: #101418; float: left; margin-bottom: 24px;">
+                  Read story
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div id="end" style="width: 100%; height: 0px; position: fixed; position-webkit-fixed; bottom: 0px; background: #10141899; backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); transition: linear 100ms; z-index: 100000000000;">
-        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 300px; display: none;" id="end-t">
-          <h4>
-            You've reached the end.
-            <br>
-            Come back next week for new clips.
-          </h4>
-        </div>
-      </div>
-      <div class="profile" id="p-relaxcapes">
-        <img src="https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/assets/header.jpg" style="width: 100%; position: absolute; aspect-ratio: 3 / 1; left: 0; object-fit: cover;">
-        <nav class="topbar" style="height: 80px; position: absolute; top: 0;">
-        <div class="touch-2" id="p-relaxcapes-c" style="width: 44px; height: 44px; border-radius: 44px; background: #FFFFFF20; backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); float: left; position: relative; top: 50%; transform: translateY(-50%); left: 20px;">
-          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 30px; position: relative; top: 50%; transform: translateY(-50%);"><path xmlns="http://www.w3.org/2000/svg" d="M480-437.85 277.08-234.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L437.85-480 234.92-682.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69L480-522.15l202.92-202.93q8.31-8.3 20.89-8.5 12.57-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L522.15-480l202.93 202.92q8.3 8.31 8.5 20.89.19 12.57-8.5 21.27-8.7 8.69-21.08 8.69-12.38 0-21.08-8.69L480-437.85Z"/></svg>
-        </div>
-        <h3 style="text-align: left; float: left; font-weight: 900; color: #FFFFFF; display: inline; position: relative; line-height: 80px; margin-top: 0px; margin-left: 30px;">
-          relaxcapes
+      <div id="g-recipes" style="display: none;">
+        <h3 style="text-align: left; margin-left: 20px;">
+          Meals in 10 minutes or less
         </h3>
-      </nav>
-        <div style="width: calc(100% - 40px); height: 120px; position: relative; top: 90px; display: flex;">
-          <img src="https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/assets/profile.png" style="width: 120px; height: 120px; float: left; box-sizing: border-box; -webkit-box-sizing: border-box; object-fit: cover; border: solid 5px #101418; border-radius: 120px;">
-          <div style="width: calc(100% - 120px); margin-left: auto; display: flex; align-items: flex-end; position: relative; top: -20px;">
-           <div style="width: 100%; height: 40px;">
-              <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500; text-align: right; float: right;">
-                Joined
-              </span>
-              <h4 style="margin-top: 0px; text-align: right; clear: both;">
-                2024
-              </h4>
-            </div>
-            <div style="width: 100%; height: 40px;">
-              <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500; text-align: right; float: right;">
-                From
-              </span>
-              <h4 style="margin-top: 2px; text-align: right; clear: both;">
-                <img src="https://nomadful.io/cdn/flags/australia.png" style="width: 17px;">
-                <span style="position: relative; top: -1px; margin-right: 0px;">AU</span>
-              </h4>
-            </div>
-            <div style="width: 100%; height: 40px;">
-              <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500; text-align: right; float: right;">
-                Clips
-              </span>
-              <h4 style="margin-top: 0px; text-align: right; clear: both;">
-                7
-              </h4>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="KRE-005" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/how-to-make-french-toast.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kitchenrepublic.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">How to make french toast</span>
+                <br>
+                <span style="color: #FFFFFF50;">10 min</span>
+              </p>
             </div>
           </div>
+          <div class="g-card guide touch-2" data-story="MOJ-001" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/four-tasty-egg-recipes-in-ten-minutes.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/morningfriend.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Four tasty egg recipes in ten minutes</span>
+                <br>
+                <span style="color: #FFFFFF50;">10 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="ABX-002" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/how-to-make-homemade-pizza.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/arboox.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">How to make homemade pizza</span>
+                <br>
+                <span style="color: #FFFFFF50;">10 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="DAF-005" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/three-quesadilla-recipes.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/dayfood.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Three quesadilla recipes</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="KRE-006" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/three-salads-three-ingredients-special.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kitchenrepublic.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Three salads, three ingredients special</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
         </div>
-        <div style="clear: both; height: 90px;"></div>
-        <div style="width: calc(100% - 40px);">
-          <p style="text-align: left; margin-left: 5px; font-size: 15px;">
-            A selection of breath-taking landscapes to help you relax and wind down.
-          </p>
-        </div>
-        <div style="clear: both; width: 100%; height: auto; position: relative; margin-top: 20px; margin-bottom: 110px; white-space: nowrap; position: relative; display: flex; overflow-x: scroll; overflow-y: hidden; -webkit-overflow-scrolling: touch;">
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 20px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/thumbs/1-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="relaxcapes-clip-1"></div>
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/thumbs/2-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="relaxcapes-clip-2"></div>
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/thumbs/3-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="relaxcapes-clip-3"></div>
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/thumbs/4-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="relaxcapes-clip-4"></div>
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/thumbs/5-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="relaxcapes-clip-5"></div>
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/thumbs/6-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="relaxcapes-clip-6"></div>
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/thumbs/7-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="relaxcapes-clip-7"></div>
-          <div style="width: 20px; flex-shrink: 0;"></div>
-        </div>
-      </div>
-      <div class="profile" id="p-animals">
-        <img src="https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/animals/assets/header.jpg" style="width: 100%; position: absolute; aspect-ratio: 3 / 1; left: 0; object-fit: cover;">
-        <nav class="topbar" style="height: 80px; position: absolute; top: 0;">
-        <div class="touch-2" id="p-animals-c" style="width: 44px; height: 44px; border-radius: 44px; background: #FFFFFF20; backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); float: left; position: relative; top: 50%; transform: translateY(-50%); left: 20px;">
-          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 30px; position: relative; top: 50%; transform: translateY(-50%);"><path xmlns="http://www.w3.org/2000/svg" d="M480-437.85 277.08-234.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L437.85-480 234.92-682.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69L480-522.15l202.92-202.93q8.31-8.3 20.89-8.5 12.57-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L522.15-480l202.93 202.92q8.3 8.31 8.5 20.89.19 12.57-8.5 21.27-8.7 8.69-21.08 8.69-12.38 0-21.08-8.69L480-437.85Z"/></svg>
-        </div>
-        <h3 style="text-align: left; float: left; font-weight: 900; color: #FFFFFF; display: inline; position: relative; line-height: 80px; margin-top: 0px; margin-left: 30px;">
-          animals
+        <div style="clear: both; height: 20px;"></div>
+        <h3 style="text-align: left; margin-left: 20px;">
+          Healthy breakfasts
         </h3>
-      </nav>
-        <div style="width: calc(100% - 40px); height: 120px; position: relative; top: 90px; display: flex;">
-          <img src="https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/animals/assets/profile.png" style="width: 120px; height: 120px; float: left; box-sizing: border-box; -webkit-box-sizing: border-box; object-fit: cover; border: solid 5px #101418; border-radius: 120px;">
-          <div style="width: calc(100% - 120px); margin-left: auto; display: flex; align-items: flex-end; position: relative; top: -20px;">
-           <div style="width: 100%; height: 40px;">
-              <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500; text-align: right; float: right;">
-                Joined
-              </span>
-              <h4 style="margin-top: 0px; text-align: right; clear: both;">
-                2025
-              </h4>
-            </div>
-            <div style="width: 100%; height: 40px;">
-              <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500; text-align: right; float: right;">
-                From
-              </span>
-              <h4 style="margin-top: 2px; text-align: right; clear: both;">
-                <img src="https://nomadful.io/cdn/flags/canada.png" style="width: 17px;">
-                <span style="position: relative; top: -1px; margin-right: 0px;">CA</span>
-              </h4>
-            </div>
-            <div style="width: 100%; height: 40px;">
-              <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500; text-align: right; float: right;">
-                Clips
-              </span>
-              <h4 style="margin-top: 0px; text-align: right; clear: both;">
-                5
-              </h4>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="MOJ-003" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/the-breakfast-wrap-recipe-to-get-your-day-started.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/morningfriend.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">The breakfast wrap recipe to get your day started</span>
+                <br>
+                <span style="color: #FFFFFF50;">12 min</span>
+              </p>
             </div>
           </div>
+          <div class="g-card guide touch-2" data-story="DAF-003" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/five-yoghurt-parfait-recipes-that-are-easy-to-cook.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/dayfood.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Five yoghurt parfait recipes that are easy to cook</span>
+                <br>
+                <span style="color: #FFFFFF50;">12 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="ABX-003" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/the-blt-sandwich-that-will-level-up-your-dinners.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/arboox.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">The BLT sandwich that will level up your dinners</span>
+                <br>
+                <span style="color: #FFFFFF50;">8 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="WKY-003" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/three-easy-to-cook-toasts-for-breakfast.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/wakey.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Three easy to cook toasts for breakfast</span>
+                <br>
+                <span style="color: #FFFFFF50;">10 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="KRE-001" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/egg-and-cheese-sandwich-recipe.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kitchenrepublic.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Egg and cheese sandwich recipe</span>
+                <br>
+                <span style="color: #FFFFFF50;">6 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
         </div>
-        <div style="clear: both; height: 90px;"></div>
-        <div style="width: calc(100% - 40px);">
-          <p style="text-align: left; margin-left: 5px; font-size: 15px;">
-            Your weekly dose of cute animals.
-          </p>
-        </div>
-        <div style="clear: both; width: 100%; height: auto; position: relative; margin-top: 20px; margin-bottom: 110px; white-space: nowrap; position: relative; display: flex; overflow-x: scroll; overflow-y: hidden; -webkit-overflow-scrolling: touch;">
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 20px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/animals/thumbs/1-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="animals-clip-1"></div>
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/animals/thumbs/2-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="animals-clip-2"></div>
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/animals/thumbs/3-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="animals-clip-3"></div>
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/animals/thumbs/4-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="animals-clip-4"></div>
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/animals/thumbs/5-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="animals-clip-5"></div>
-          <div style="width: 20px; flex-shrink: 0;"></div>
-        </div>
-      </div>
-      <div class="profile" id="p-quotes">
-        <img src="https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/quotes/assets/header.png" style="width: 100%; position: absolute; aspect-ratio: 3 / 1; left: 0; object-fit: cover;">
-        <nav class="topbar" style="height: 80px; position: absolute; top: 0;">
-        <div class="touch-2" id="p-quotes-c" style="width: 44px; height: 44px; border-radius: 44px; background: #FFFFFF20; backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); float: left; position: relative; top: 50%; transform: translateY(-50%); left: 20px;">
-          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 30px; position: relative; top: 50%; transform: translateY(-50%);"><path xmlns="http://www.w3.org/2000/svg" d="M480-437.85 277.08-234.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L437.85-480 234.92-682.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69L480-522.15l202.92-202.93q8.31-8.3 20.89-8.5 12.57-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L522.15-480l202.93 202.92q8.3 8.31 8.5 20.89.19 12.57-8.5 21.27-8.7 8.69-21.08 8.69-12.38 0-21.08-8.69L480-437.85Z"/></svg>
-        </div>
-        <h3 style="text-align: left; float: left; font-weight: 900; color: #FFFFFF; display: inline; position: relative; line-height: 80px; margin-top: 0px; margin-left: 30px;">
-          quotes
+        <div style="clear: both; height: 20px;"></div>
+        <h3 style="text-align: left; margin-left: 20px;">
+          International cuisine
         </h3>
-      </nav>
-        <div style="width: calc(100% - 40px); height: 120px; position: relative; top: 90px; display: flex;">
-          <img src="https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/quotes/assets/profile.png" style="width: 120px; height: 120px; float: left; box-sizing: border-box; -webkit-box-sizing: border-box; object-fit: cover; border: solid 5px #101418; border-radius: 120px;">
-          <div style="width: calc(100% - 120px); margin-left: auto; display: flex; align-items: flex-end; position: relative; top: -20px;">
-           <div style="width: 100%; height: 40px;">
-              <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500; text-align: right; float: right;">
-                Joined
-              </span>
-              <h4 style="margin-top: 0px; text-align: right; clear: both;">
-                2025
-              </h4>
-            </div>
-            <div style="width: 100%; height: 40px;">
-              <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500; text-align: right; float: right;">
-                From
-              </span>
-              <h4 style="margin-top: 2px; text-align: right; clear: both;">
-                <img src="https://nomadful.io/cdn/flags/new-zealand.png" style="width: 17px;">
-                <span style="position: relative; top: -1px; margin-right: 0px;">NZ</span>
-              </h4>
-            </div>
-            <div style="width: 100%; height: 40px;">
-              <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500; text-align: right; float: right;">
-                Clips
-              </span>
-              <h4 style="margin-top: 0px; text-align: right; clear: both;">
-                4
-              </h4>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="DAF-002" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/five-mexican-main-course-classics.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/dayfood.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Five mexican main course classics</span>
+                <br>
+                <span style="color: #FFFFFF50;">8 min</span>
+              </p>
             </div>
           </div>
+          <div class="g-card guide touch-2" data-story="DAF-004" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/how-to-cook-the-tastiest-fish-and-chips.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/dayfood.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">How to cook the tastiest fish and chips</span>
+                <br>
+                <span style="color: #FFFFFF50;">10 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="ABX-001" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/five-pasta-sauces-to-try-for-your-next-meal.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/arboox.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Five pasta sauces to try for your next meal</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="DAF-006" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/three-special-noodle-recipes.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/dayfood.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Three special noodle recipes</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="KRE-002" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/five-dishes-with-leftover-chicken.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kitchenrepublic.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Five dishes with leftover chicken</span>
+                <br>
+                <span style="color: #FFFFFF50;">10 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
         </div>
-        <div style="clear: both; height: 90px;"></div>
-        <div style="width: calc(100% - 40px);">
-          <p style="text-align: left; margin-left: 5px; font-size: 15px;">
-            Inspiring quotes to get your week started the right way.
-          </p>
-        </div>
-        <div style="clear: both; width: 100%; height: auto; position: relative; margin-top: 20px; margin-bottom: 110px; white-space: nowrap; position: relative; display: flex; overflow-x: scroll; overflow-y: hidden; -webkit-overflow-scrolling: touch;">
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 20px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/quotes/thumbs/1-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="quotes-clip-1"></div>
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/quotes/thumbs/2-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="quotes-clip-2"></div>
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/quotes/thumbs/3-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="quotes-clip-3"></div>
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/quotes/thumbs/4-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="quotes-clip-4"></div>
-          <div style="width: 20px; flex-shrink: 0;"></div>
-        </div>
-      </div>
-      <div class="profile" id="p-nature">
-        <img src="https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/nature/assets/header.jpg" style="width: 100%; position: absolute; aspect-ratio: 3 / 1; left: 0; object-fit: cover;">
-        <nav class="topbar" style="height: 80px; position: absolute; top: 0;">
-        <div class="touch-2" id="p-nature-c" style="width: 44px; height: 44px; border-radius: 44px; background: #FFFFFF20; backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); float: left; position: relative; top: 50%; transform: translateY(-50%); left: 20px;">
-          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 30px; position: relative; top: 50%; transform: translateY(-50%);"><path xmlns="http://www.w3.org/2000/svg" d="M480-437.85 277.08-234.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L437.85-480 234.92-682.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69L480-522.15l202.92-202.93q8.31-8.3 20.89-8.5 12.57-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L522.15-480l202.93 202.92q8.3 8.31 8.5 20.89.19 12.57-8.5 21.27-8.7 8.69-21.08 8.69-12.38 0-21.08-8.69L480-437.85Z"/></svg>
-        </div>
-        <h3 style="text-align: left; float: left; font-weight: 900; color: #FFFFFF; display: inline; position: relative; line-height: 80px; margin-top: 0px; margin-left: 30px;">
-          nature
+        <div style="clear: both; height: 20px;"></div>
+        <h3 style="text-align: left; margin-left: 20px;">
+          Beverages
         </h3>
-      </nav>
-        <div style="width: calc(100% - 40px); height: 120px; position: relative; top: 90px; display: flex;">
-          <img src="https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/nature/assets/profile.png" style="width: 120px; height: 120px; float: left; box-sizing: border-box; -webkit-box-sizing: border-box; object-fit: cover; border: solid 5px #101418; border-radius: 120px;">
-          <div style="width: calc(100% - 120px); margin-left: auto; display: flex; align-items: flex-end; position: relative; top: -20px;">
-           <div style="width: 100%; height: 40px;">
-              <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500; text-align: right; float: right;">
-                Joined
-              </span>
-              <h4 style="margin-top: 0px; text-align: right; clear: both;">
-                2025
-              </h4>
-            </div>
-            <div style="width: 100%; height: 40px;">
-              <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500; text-align: right; float: right;">
-                From
-              </span>
-              <h4 style="margin-top: 2px; text-align: right; clear: both;">
-                <img src="https://nomadful.io/cdn/flags/united-kingdom.png" style="width: 17px;">
-                <span style="position: relative; top: -1px; margin-right: 0px;">UK</span>
-              </h4>
-            </div>
-            <div style="width: 100%; height: 40px;">
-              <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500; text-align: right; float: right;">
-                Clips
-              </span>
-              <h4 style="margin-top: 0px; text-align: right; clear: both;">
-                4
-              </h4>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="KRE-003" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/five-refreshing-smoothies.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kitchenrepublic.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Five refreshing smoothies</span>
+                <br>
+                <span style="color: #FFFFFF50;">10 min</span>
+              </p>
             </div>
           </div>
-        </div>
-        <div style="clear: both; height: 90px;"></div>
-        <div style="width: calc(100% - 40px);">
-          <p style="text-align: left; margin-left: 5px; font-size: 15px;">
-            Connect with nature.
-          </p>
-        </div>
-        <div style="clear: both; width: 100%; height: auto; position: relative; margin-top: 20px; margin-bottom: 110px; white-space: nowrap; position: relative; display: flex; overflow-x: scroll; overflow-y: hidden; -webkit-overflow-scrolling: touch;">
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 20px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/nature/thumbs/1-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="nature-clip-1"></div>
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/nature/thumbs/2-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="nature-clip-2"></div>
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/nature/thumbs/3-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="nature-clip-3"></div>
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 10px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/nature/thumbs/4-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="nature-clip-4"></div>
-          <div style="width: 20px; flex-shrink: 0;"></div>
+          <div class="g-card guide touch-2" data-story="KRE-004" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/golden-milk-tea-recipe.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kitchenrepublic.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Golden milk tea recipe</span>
+                <br>
+                <span style="color: #FFFFFF50;">8 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="DAF-001" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/easy-iced-lemon-tea-recipe.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/dayfood.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Easy iced lemon tea recipe</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="MOJ-002" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/how-to-make-a-delicious-and-recovering-cinnamon-tea.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/morningfriend.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">How to make a delicious and recovering cinnamon tea</span>
+                <br>
+                <span style="color: #FFFFFF50;">6 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
         </div>
       </div>
-      <div class="profile" id="p-meditate">
-        <img src="https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/meditate/assets/header.png" style="width: 100%; position: absolute; aspect-ratio: 3 / 1; left: 0; object-fit: cover;">
-        <nav class="topbar" style="height: 80px; position: absolute; top: 0;">
-        <div class="touch-2" id="p-meditate-c" style="width: 44px; height: 44px; border-radius: 44px; background: #FFFFFF20; backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); float: left; position: relative; top: 50%; transform: translateY(-50%); left: 20px;">
-          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 30px; position: relative; top: 50%; transform: translateY(-50%);"><path xmlns="http://www.w3.org/2000/svg" d="M480-437.85 277.08-234.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L437.85-480 234.92-682.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69L480-522.15l202.92-202.93q8.31-8.3 20.89-8.5 12.57-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L522.15-480l202.93 202.92q8.3 8.31 8.5 20.89.19 12.57-8.5 21.27-8.7 8.69-21.08 8.69-12.38 0-21.08-8.69L480-437.85Z"/></svg>
-        </div>
-        <h3 style="text-align: left; float: left; font-weight: 900; color: #FFFFFF; display: inline; position: relative; line-height: 80px; margin-top: 0px; margin-left: 30px;">
-          meditate
+      <div id="g-cities" style="display: none;">
+        <h3 style="text-align: left; margin-left: 20px;">
+          London
         </h3>
-      </nav>
-        <div style="width: calc(100% - 40px); height: 120px; position: relative; top: 90px; display: flex;">
-          <img src="https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/nature/assets/profile.png" style="width: 120px; height: 120px; float: left; box-sizing: border-box; -webkit-box-sizing: border-box; object-fit: cover; border: solid 5px #101418; border-radius: 120px;">
-          <div style="width: calc(100% - 120px); margin-left: auto; display: flex; align-items: flex-end; position: relative; top: -20px;">
-           <div style="width: 100%; height: 40px;">
-              <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500; text-align: right; float: right;">
-                Joined
-              </span>
-              <h4 style="margin-top: 0px; text-align: right; clear: both;">
-                2025
-              </h4>
-            </div>
-            <div style="width: 100%; height: 40px;">
-              <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500; text-align: right; float: right;">
-                From
-              </span>
-              <h4 style="margin-top: 2px; text-align: right; clear: both;">
-                <img src="https://nomadful.io/cdn/flags/south-korea.png" style="width: 17px;">
-                <span style="position: relative; top: -1px; margin-right: 0px;">KR</span>
-              </h4>
-            </div>
-            <div style="width: 100%; height: 40px;">
-              <span style="color: #FFFFFF50; font-size: 12px; text-transform: uppercase; font-weight: 500; text-align: right; float: right;">
-                Clips
-              </span>
-              <h4 style="margin-top: 0px; text-align: right; clear: both;">
-                1
-              </h4>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="TVO-001" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/24-hours-in-london.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/thevoyager.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">24 hours in London</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
             </div>
           </div>
+          <div class="g-card guide touch-2" data-story="KTE-001" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/our-museum-selection-in-london.avif'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kon-temp.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Our museum selection in London</span>
+                <br>
+                <span style="color: #FFFFFF50;">3 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="NMF-007" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/parks-for-meditation-in-london.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/nomadful.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Parks for meditation in London</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="ABX-004" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/sights-and-views-from-london.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/arboox.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Sights and views from London</span>
+                <br>
+                <span style="color: #FFFFFF50;">8 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="DAF-007" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/restaurants-in-london-you-cant-miss.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/dayfood.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Restaurants in London you can't miss</span>
+                <br>
+                <span style="color: #FFFFFF50;">3 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
         </div>
-        <div style="clear: both; height: 90px;"></div>
-        <div style="width: calc(100% - 40px);">
-          <p style="text-align: left; margin-left: 5px; font-size: 15px;">
-            Weekly clips on breathing techniques and relaxing scenes.
+        <div style="clear: both; height: 20px;"></div>
+        <h3 style="text-align: left; margin-left: 20px;">
+          Copenhagen
+        </h3>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="FLK-001" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/nyhavn-and-more-copenhagens-landmark-gems.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/folklore.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Nyhavn and more: Copenhagen's landmark gems</span>
+                <br>
+                <span style="color: #FFFFFF50;">8 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="KTE-002" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/must-visit-museums-in-cph.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kon-temp.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Must visit museums in CPH</span>
+                <br>
+                <span style="color: #FFFFFF50;">6 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="ABX-005" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/gardens-and-parks-in-copenhagen-for-a-chill-afternoon.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/arboox.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Gardens and parks in Copenhagen for a chill afternoon</span>
+                <br>
+                <span style="color: #FFFFFF50;">8 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
+        </div>
+        <div style="clear: both; height: 20px;"></div>
+        <h3 style="text-align: left; margin-left: 20px;">
+          Frankfurt
+        </h3>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="DAF-008" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/five-course-gastronomic-tour-in-frankfurt.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/dayfood.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Five course gastronomic tour in Frankfurt</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="FLK-002" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/cultural-landmarks-worth-visiting-in-frankfurt.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/folklore.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Cultural landmarks worth visiting in Frankfurt</span>
+                <br>
+                <span style="color: #FFFFFF50;">3 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="KRE-007" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/dessert-time-in-franfurts-altstadt.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kitchenrepublic.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Dessert time in Frankfurt's Altstadt</span>
+                <br>
+                <span style="color: #FFFFFF50;">2 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
+        </div>
+        <div style="clear: both; height: 40px;"></div>
+        <div style="width: calc(100% - 40px); height: auto; aspect-ratio: 6/5; background: #FFFFFF10; border-top: solid 0.5px #FFFFFF50; border-left: solid 0.5px #FFFFFF50; border-right: solid 0.5px #FFFFFF50; border-radius: 12px 12px 0px 0px; position: relative;">
+          <iframe src="..." width="300" height="250" scrolling="no" style="border: none; border-radius: 10px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" id="fr-2"></iframe>
+        </div>
+        <div style="width: calc(100% - 40px); height: 50px; background: #FFFFFF10; border: solid 0.5px #FFFFFF50; margin-top: 0px; border-radius: 0px 0px 12px 12px;">
+          <p style="line-height: 50px; margin-top: 0px; text-align: left; float: left; margin-left: 12px;">
+            Sponsored
           </p>
+          <a href="https://nomadful.io/report" style="line-height: 50px; margin-top: 0px; text-align: right; float: right; margin-right: 12px; font-weight: 600; text-decoration: none; color: inherit;">
+            Report
+          </a>
         </div>
-        <div style="clear: both; width: 100%; height: auto; position: relative; margin-top: 20px; margin-bottom: 110px; white-space: nowrap; position: relative; display: flex; overflow-x: scroll; overflow-y: hidden; -webkit-overflow-scrolling: touch;">
-          <div style="width: 100px; height: auto; aspect-ratio: 9/16; background: #0094ff; margin-left: 20px; border-radius: 10px; flex-shrink: 0; display: inline-block; background: url('https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/nature/thumbs/1-min.png'); background-repeat: norepeat; background-size: cover; background-position: center;" class="touch-2" id="meditate-clip-1"></div>
-          <div style="width: 20px; flex-shrink: 0;"></div>
+        <div style="clear: both; height: 20px;"></div>
+        <h3 style="text-align: left; margin-left: 20px;">
+          Madrid
+        </h3>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="KRE-008" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/where-to-try-the-best-local-cuisine-in-madrid.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kitchenrepublic.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Where to try the best local cuisine in Madrid</span>
+                <br>
+                <span style="color: #FFFFFF50;">3 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="KTE-003" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/the-best-art-and-culture-museums-in-madrid.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kon-temp.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">The best art and culture museums in Madrid</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="ABX-006" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/spots-in-madrid-for-sightseeing.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/arboox.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Spots in Madrid for sightseeing</span>
+                <br>
+                <span style="color: #FFFFFF50;">2 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
+        </div>
+        <div style="clear: both; height: 20px;"></div>
+        <h3 style="text-align: left; margin-left: 20px;">
+          Mexico City
+        </h3>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="ABX-007" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/one-day-in-mexico-city.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/arboox.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">One day in Mexico City</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="NMF-008" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/parks-for-meditation-in-cdmx.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/nomadful.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Parks for meditation in CDMX</span>
+                <br>
+                <span style="color: #FFFFFF50;">2 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="DAF-009" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/must-visit-restaurants-in-mexico-city.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/dayfood.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Must visit restaurants in Mexico City</span>
+                <br>
+                <span style="color: #FFFFFF50;">3 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="ABX-007" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/five-cultural-landmarks-in-mexico-city.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/arboox.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Five cultural landmarks in Mexico City</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="ABX-008" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/a-guide-to-museums-in-mexico-city.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/arboox.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">A guide to museums in Mexico City</span>
+                <br>
+                <span style="color: #FFFFFF50;">3 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="TVO-002" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/the-best-sights-in-mexico-city.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/thevoyager.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">The best sights in Mexico City</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
+        </div>
+        <div style="clear: both; height: 20px;"></div>
+        <h3 style="text-align: left; margin-left: 20px;">
+          Oslo
+        </h3>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="TVO-003" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/best-views-in-oslo.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/thevoyager.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Best views in Oslo</span>
+                <br>
+                <span style="color: #FFFFFF50;">4 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="KTE-004" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/a-museum-agenda-for-oslo.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kon-temp.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">A museum agenda for Oslo</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="KRE-009" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/the-best-restaurants-in-oslo.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kitchenrepublic.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">The best restaurants in Oslo</span>
+                <br>
+                <span style="color: #FFFFFF50;">3 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="ABX-009" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/gardens-and-parks-in-oslo-for-a-relaxing-walk.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/arboox.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Gardens and parks in Oslo for a relaxing walk</span>
+                <br>
+                <span style="color: #FFFFFF50;">3 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
+        </div>
+        <div style="clear: both; height: 20px;"></div>
+        <h3 style="text-align: left; margin-left: 20px;">
+          Rio de Janeiro
+        </h3>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="DAF-010" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/best-coffee-shops-for-brunch-in-rio.avif'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/dayfood.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Best coffee shops for brunch in Rio</span>
+                <br>
+                <span style="color: #FFFFFF50;">8 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="FLK-003" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/top-landmarks-in-rio-de-janeiro.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/folklore.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Top landmarks in Rio de Janeiro</span>
+                <br>
+                <span style="color: #FFFFFF50;">3 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="KTE-005" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/the-complete-museum-guide-in-rio.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kon-temp.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">The complete museum guide in Rio</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="ABX-010" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/24-hours-in-rio.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/arboox.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">24 hours in Rio</span>
+                <br>
+                <span style="color: #FFFFFF50;">10 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="KRE-010" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/local-dishes-to-try-if-youre-in-rio.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kitchenrepublic.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Local dishes to try if you're in Rio</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
+        </div>
+        <div style="clear: both; height: 20px;"></div>
+        <h3 style="text-align: left; margin-left: 20px;">
+          Stockholm
+        </h3>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="KTE-006" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/art-exhibits-throughout-stockholm.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kon-temp.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Art exhibits throughout Stockholm</span>
+                <br>
+                <span style="color: #FFFFFF50;">6 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="FLK-004" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/landmarks-from-stockholm.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/folklore.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Landmarks from Stockholm</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="KRE-011" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/best-eateries-for-an-authentic-swedish-meal-in-stockholm.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/kitchenrepublic.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Best eateries for an authentic swedish meal in Stockholm</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="HTG-001" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/museums-to-visit-if-youre-in-stockholm.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/heritage.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Museums to visit if you're in Stockholm</span>
+                <br>
+                <span style="color: #FFFFFF50;">2 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="TVO-004" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/where-to-get-the-best-pictures-from-stockholm.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/thevoyager.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Where to get the best pictures from Stockholm</span>
+                <br>
+                <span style="color: #FFFFFF50;">4 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
         </div>
       </div>
+      <div id="g-meditation" style="display: none;">
+        <h3 style="text-align: left; margin-left: 20px;">
+          The basics
+        </h3>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="MDT-004" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/meditation-for-beginners.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/meditate.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Meditation for beginners</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="NMF-005" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/start-meditating-in-ten-minutes.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/nomadful.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Start meditating in ten minutes</span>
+                <br>
+                <span style="color: #FFFFFF50;">10 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="MDT-003" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/how-to-make-a-body-scan.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/meditate.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">How to make a body scan</span>
+                <br>
+                <span style="color: #FFFFFF50;">4 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="RXC-001" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/how-to-relax.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/relaxcapes.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">How to relax</span>
+                <br>
+                <span style="color: #FFFFFF50;">4 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
+        </div>
+        <div style="clear: both; height: 20px;"></div>
+        <h3 style="text-align: left; margin-left: 20px;">
+          Connect with your surroundings
+        </h3>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="RXC-002" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/nature-spots-to-meditate.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/relaxcapes.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Nature spots to meditate in</span>
+                <br>
+                <span style="color: #FFFFFF50;">2 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="NMF-003" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/meditation-techniques.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/nomadful.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Meditation techniques</span>
+                <br>
+                <span style="color: #FFFFFF50;">10 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="MDT-001" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/be-grateful-for.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/meditate.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Be grateful for...</span>
+                <br>
+                <span style="color: #FFFFFF50;">1 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
+        </div>
+        <div style="clear: both; height: 20px;"></div>
+        <h3 style="text-align: left; margin-left: 20px;">
+          Wind down
+        </h3>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="NMF-004" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/quick-stretches.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/nomadful.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Quick stretches</span>
+                <br>
+                <span style="color: #FFFFFF50;">10 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="MDT-002" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/daily-reflections.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/meditate.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Daily reflections</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="NMF-001" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/a-guide-to-calming-meditation.webp'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/nomadful.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">A guide to calming meditation</span>
+                <br>
+                <span style="color: #FFFFFF50;">3 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
+        </div>
+      </div>
+      <div id="g-health" style="display: none;">
+        <h3 style="text-align: left; margin-left: 20px;">
+          Routines
+        </h3>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="MOJ-004" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/three-early-morning-routines-to-start-the-day.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/morningfriend.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Three early morning routines to start the day</span>
+                <br>
+                <span style="color: #FFFFFF50;">15 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="NMF-006" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/tips-for-a-better-night-sleep.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/nomadful.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Tips for a better night sleep</span>
+                <br>
+                <span style="color: #FFFFFF50;">4 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="WKY-002" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/the-daily-activator-routine.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/wakey.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">The daily activator routine</span>
+                <br>
+                <span style="color: #FFFFFF50;">15 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
+        </div>
+        <div style="clear: both; height: 20px;"></div>
+        <h3 style="text-align: left; margin-left: 20px;">
+          Resources
+        </h3>
+        <div class="g-scroll">
+          <div class="g-card guide touch-2" data-story="NMF-002" style="margin-left: 20px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/how-to-identify-your-emotions.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/nomadful.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">How to identify your emotions</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="WKY-001" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/mood-regulators-simple-steps-to-get-you-back-to-well-being.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/wakey.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Mood regulators: simple steps to get you back to well-being</span>
+                <br>
+                <span style="color: #FFFFFF50;">8 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card guide touch-2" data-story="MDT-005" style="margin-left: 10px;">
+            <div style="width: 100%; height: auto; aspect-ratio: 16/9; background: url('https://nomadful.github.io/dac/cdn/i/self-care-methods-to-strengthen-your-mind-and-body-connections.jpeg'); background-size: cover; background-position: center; margin-bottom: 70px;"></div>
+            <img src="https://nomadful.github.io/dac/cdn/p/meditate.png" style="height: 50px; position: absolute; top: 0px; left: 12px;">
+            <div style="width: 100%; height: 50px; position: absolute; bottom: 5px;">
+              <p style="width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; float: left; margin-left: 12px; margin-bottom: 0px; margin-top: 0px;">
+                <span style="font-weight: 600;">Self care methods to strengthen your mind and body connections</span>
+                <br>
+                <span style="color: #FFFFFF50;">5 min</span>
+              </p>
+            </div>
+          </div>
+          <div class="g-card" style="background: transparent; width: auto;">
+            <div style="width: 20px;"></div>
+          </div>
+        </div>
+      </div>
+      <div style="clear: both; height: 40px;"></div>
+      <div style="width: 100%; height: 0.5px; background: #FFFFFF50;"></div>
+      <div style="clear: both; height: 20px;"></div>
+      <button class="blbg" style="width: calc(100% - 40px); background: #55AFFE50; color: #55AFFE;">
+        Report something
+      </button>
+      <button class="blbg" style="width: calc(100% - 40px); background: #55AFFE50; color: #55AFFE; margin-top: 10px;">
+        Publish a guide
+      </button>
+      <div style="clear: both; height: 100px;"></div>
     </center>
+    <iframe src="s" id="s-view" class="s-view"></iframe>
+    <iframe src="s" id="s-view-2" class="s-view"></iframe>
+    <iframe src="s" id="s-view-3" class="s-view"></iframe>
+    <iframe src="s" id="s-view-static" class="s-view"></iframe>
+    <div class="touch-2" id="s-view-c" style="width: 44px; height: 44px; border-radius: 44px; background: #FFFFFF20; backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); position: fixed; top: 100px; right: 20px; z-index: 1000000; display: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 30px; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%);"><path xmlns="http://www.w3.org/2000/svg" d="M480-437.85 277.08-234.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L437.85-480 234.92-682.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69L480-522.15l202.92-202.93q8.31-8.3 20.89-8.5 12.57-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L522.15-480l202.93 202.92q8.3 8.31 8.5 20.89.19 12.57-8.5 21.27-8.7 8.69-21.08 8.69-12.38 0-21.08-8.69L480-437.85Z"/></svg>
+    </div>
+    <div class="touch-2" id="s-view-c-2" style="width: 44px; height: 44px; border-radius: 44px; background: #FFFFFF20; backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); position: fixed; top: 100px; right: 20px; z-index: 1000000; display: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 -960 960 960" style="fill: #FFFFFF; width: 30px; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%);"><path xmlns="http://www.w3.org/2000/svg" d="M480-437.85 277.08-234.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L437.85-480 234.92-682.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69L480-522.15l202.92-202.93q8.31-8.3 20.89-8.5 12.57-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L522.15-480l202.93 202.92q8.3 8.31 8.5 20.89.19 12.57-8.5 21.27-8.7 8.69-21.08 8.69-12.38 0-21.08-8.69L480-437.85Z"/></svg>
+    </div>
     <script> 
       var tran = new Translater();
     </script>
-    <script name="int">
-      function shuffleSlides() {
-    const slider = document.querySelector('.d-slider');
-    const slides = Array.from(slider.children);
-    for (let i = slides.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [slides[i], slides[j]] = [slides[j], slides[i]]; 
-    }
+    <script>
+      document.querySelector("#i-featured").addEventListener("click", () => {
+        document.querySelector("#i-featured").style = "margin-left: 20px; background: #FFFFFF50; color: #FFFFFF; font-weight: 600;";
+        document.querySelector("#i-recipes").style = "margin-left: 10px; background: #FFFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#i-cities").style = "margin-left: 10px; background: #FFFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#i-meditation").style = "margin-left: 10px; background: #FFFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#i-health").style = "margin-left: 10px; background: #FFFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#svg-f").style.fill = "#FFFFFF";
+        document.querySelector("#svg-r").style.fill = "#FFFFFF80";
+        document.querySelector("#svg-c").style.fill = "#FFFFFF80";
+        document.querySelector("#svg-m").style.fill = "#FFFFFF80";
+        document.querySelector("#svg-h").style.fill = "#FFFFFF80";
+        document.querySelector("#g-f-bg").style.opacity = "1";
+        document.querySelector("#g-featured").style.display = "block";
+        document.querySelector("#g-recipes").style.display = "none";
+        document.querySelector("#g-cities").style.display = "none";
+        document.querySelector("#g-meditation").style.display = "none";
+        document.querySelector("#g-health").style.display = "none";
+      });
+      
+      document.querySelector("#i-recipes").addEventListener("click", () => {
+        document.querySelector("#i-featured").style = "margin-left: 20px; background: #FFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#i-recipes").style = "margin-left: 10px; background: #FFFFFF50; color: #FFFFFF; font-weight: 600;";
+        document.querySelector("#i-cities").style = "margin-left: 10px; background: #FFFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#i-meditation").style = "margin-left: 10px; background: #FFFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#i-health").style = "margin-left: 10px; background: #FFFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#svg-f").style.fill = "#FFFFFF80";
+        document.querySelector("#svg-r").style.fill = "#FFFFFF";
+        document.querySelector("#svg-c").style.fill = "#FFFFFF80";
+        document.querySelector("#svg-m").style.fill = "#FFFFFF80";
+        document.querySelector("#svg-h").style.fill = "#FFFFFF80";
+        document.querySelector("#g-f-bg").style.opacity = "0";
+        document.querySelector("#g-featured").style.display = "none";
+        document.querySelector("#g-recipes").style.display = "block";
+        document.querySelector("#g-cities").style.display = "none";
+        document.querySelector("#g-meditation").style.display = "none";
+        document.querySelector("#g-health").style.display = "none";
+      });
+      
+      document.querySelector("#i-cities").addEventListener("click", () => {
+        document.querySelector("#i-featured").style = "margin-left: 20px; background: #FFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#i-recipes").style = "margin-left: 10px; background: #FFFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#i-cities").style = "margin-left: 10px; background: #FFFFFF50; color: #FFFFFF; font-weight: 600;";
+        document.querySelector("#i-meditation").style = "margin-left: 10px; background: #FFFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#i-health").style = "margin-left: 10px; background: #FFFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#svg-f").style.fill = "#FFFFFF80";
+        document.querySelector("#svg-r").style.fill = "#FFFFFF80";
+        document.querySelector("#svg-c").style.fill = "#FFFFFF";
+        document.querySelector("#svg-m").style.fill = "#FFFFFF80";
+        document.querySelector("#svg-h").style.fill = "#FFFFFF80";
+        document.querySelector("#g-f-bg").style.opacity = "0";
+        document.querySelector("#g-featured").style.display = "none";
+        document.querySelector("#g-recipes").style.display = "none";
+        document.querySelector("#g-cities").style.display = "block";
+        document.querySelector("#g-meditation").style.display = "none";
+        document.querySelector("#g-health").style.display = "none";
+      });
+      
+      document.querySelector("#i-meditation").addEventListener("click", () => {
+        document.querySelector("#i-featured").style = "margin-left: 20px; background: #FFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#i-recipes").style = "margin-left: 10px; background: #FFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#i-cities").style = "margin-left: 10px; background: #FFFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#i-meditation").style = "margin-left: 10px; background: #FFFFFF50; color: #FFFFFF; font-weight: 600;";
+        document.querySelector("#i-health").style = "margin-left: 10px; background: #FFFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#svg-f").style.fill = "#FFFFFF80";
+        document.querySelector("#svg-r").style.fill = "#FFFFFF80";
+        document.querySelector("#svg-c").style.fill = "#FFFFFF80";
+        document.querySelector("#svg-m").style.fill = "#FFFFFF";
+        document.querySelector("#svg-h").style.fill = "#FFFFFF80";
+        document.querySelector("#g-f-bg").style.opacity = "0";
+        document.querySelector("#g-featured").style.display = "none";
+        document.querySelector("#g-recipes").style.display = "none";
+        document.querySelector("#g-cities").style.display = "none";
+        document.querySelector("#g-meditation").style.display = "block";
+        document.querySelector("#g-health").style.display = "none";
+      });
+      
+      document.querySelector("#i-health").addEventListener("click", () => {
+        document.querySelector("#i-featured").style = "margin-left: 20px; background: #FFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#i-recipes").style = "margin-left: 10px; background: #FFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#i-cities").style = "margin-left: 10px; background: #FFFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#i-meditation").style = "margin-left: 10px; background: #FFFFFF10; color: #FFFFFF80; font-weight: 400;";
+        document.querySelector("#i-health").style = "margin-left: 10px; background: #FFFFFF50; color: #FFFFFF; font-weight: 600;";
+        document.querySelector("#svg-f").style.fill = "#FFFFFF80";
+        document.querySelector("#svg-r").style.fill = "#FFFFFF80";
+        document.querySelector("#svg-c").style.fill = "#FFFFFF80";
+        document.querySelector("#svg-m").style.fill = "#FFFFFF80";
+        document.querySelector("#svg-h").style.fill = "#FFFFFF";
+        document.querySelector("#g-f-bg").style.opacity = "0";
+        document.querySelector("#g-featured").style.display = "none";
+        document.querySelector("#g-recipes").style.display = "none";
+        document.querySelector("#g-cities").style.display = "none";
+        document.querySelector("#g-meditation").style.display = "none";
+        document.querySelector("#g-health").style.display = "block";
+      });
+    </script>
+    <script>
+      const IDs = ["ABX-001", "ABX-002", "ABX-003", "DAF-001", "DAF-002", "DAF-003", "DAF-004", "DAF-005", "DAF-006", "KRE-001", "KRE-002", "KRE-003", "KRE-004", "KRE-005", "KRE-006", "MDT-001", "MDT-002", "MDT-003", "MDT-004", "MDT-005", "MOJ-001", "MOJ-002", "MOJ-003", "MOJ-004", "NMF-001", "NMF-002", "NMF-003", "NMF-004", "NMF-005", "NMF-006", "RXC-001", "RXC-002", "WKY-001", "WKY-002", "WKY-003"];
 
-    slides.forEach(slide => slider.appendChild(slide));
-        window.scrollTo(0,0);
+function featured(availableIDs) {
+  const randomIndex = Math.floor(Math.random() * availableIDs.length);
+  const id = availableIDs.splice(randomIndex, 1)[0];
+  const jsonUrl = `https://nomadful.github.io/dac/api/${id}.json`;
+
+  fetch(jsonUrl)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('g-title').innerHTML = data.title;
+      document.getElementById('g-category').innerHTML = data.category;
+      document.getElementById('g-time').innerHTML = data.time;
+      document.getElementById('g-card').style.background = `url('${data.cover}')`;
+      document.getElementById('g-card').style.backgroundSize = "cover";
+      document.getElementById('g-card').style.backgroundRepeat = "no-repeat";
+      document.getElementById('g-publisher').src = data.publisher;
+      document.getElementById('g-f-bg').style.background = data.colour;
+      document.getElementById('s-view').src = `https://nomadful.github.io/dac/s/${data.id}`;
+    });
+}
+
+function featured2(availableIDs) {
+  const randomIndex = Math.floor(Math.random() * availableIDs.length);
+  const id = availableIDs.splice(randomIndex, 1)[0];
+  const jsonUrl = `https://nomadful.github.io/dac/api/${id}.json`;
+
+  fetch(jsonUrl)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('g-title-2').innerHTML = data.title;
+      document.getElementById('g-category-2').innerHTML = data.category;
+      document.getElementById('g-time-2').innerHTML = data.time;
+      document.getElementById('g-card-2').style.background = `url('${data.cover}')`;
+      document.getElementById('g-card-2').style.backgroundSize = "cover";
+      document.getElementById('g-card-2').style.backgroundRepeat = "no-repeat";
+      document.getElementById('g-publisher-2').src = data.publisher;
+      document.getElementById('s-view-2').src = `https://nomadful.github.io/dac/s/${data.id}`;
+    });
+}
+
+function featured3(availableIDs) {
+  const randomIndex = Math.floor(Math.random() * availableIDs.length);
+  const id = availableIDs.splice(randomIndex, 1)[0];
+  const jsonUrl = `https://nomadful.github.io/dac/api/${id}.json`;
+
+  fetch(jsonUrl)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('g-title-3').innerHTML = data.title;
+      document.getElementById('g-category-3').innerHTML = data.category;
+      document.getElementById('g-time-3').innerHTML = data.time;
+      document.getElementById('g-card-3').style.background = `url('${data.cover}')`;
+      document.getElementById('g-card-3').style.backgroundSize = "cover";
+      document.getElementById('g-card-3').style.backgroundRepeat = "no-repeat";
+      document.getElementById('g-publisher-3').src = data.publisher;
+      document.getElementById('s-view-3').src = `https://nomadful.github.io/dac/s/${data.id}`;
+    });
+}
+
+function initializeCards() {
+  if (IDs.length === 0) {
+    console.warn("The IDs array is empty. Please populate it with valid IDs.");
+    return;
   }
-      
-  window.onload = shuffleSlides();
-      
- var items = document.querySelectorAll(".d-slide");
-var lastchild = items[items.length-1]; 
-      
-      lastchild.addEventListener("swiped-up", function(e) {
-  document.querySelector("#end").style.height = "100vh";
-        document.querySelector("#end-t").style.display = "block";
-});
-      
-      document.querySelector("#end").addEventListener("swiped-down", function(e) {
-  document.querySelector("#end").style.height = "0px";
-        document.querySelector("#end-t").style.display = "none";
-});
-      
-const dSliderElement = document.querySelector('.d-slider');
 
-voElement.addEventListener('mousedown', (event) => {
-  dSliderElement.style.opacity = '0.5';
-});
+  const availableIDs = [...IDs];
+  featured(availableIDs);
+  featured2(availableIDs);
+  featured3(availableIDs);
+}
 
-voElement.addEventListener('mouseup', (event) => {
-  dSliderElement.style.opacity = '1';
-});
+initializeCards();
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+    const elements = document.querySelectorAll('.guide');
+    const sViewStatic = document.querySelector('#s-view-static');
+    const sViewC = document.querySelector('#s-view-c-2');
+    
+    if (!sViewStatic || !sViewC) return;
 
-voElement.addEventListener('touchstart', (event) => {
-  dSliderElement.style.opacity = '0.5';
-});
-
-voElement.addEventListener('touchend', (event) => {
-  dSliderElement.style.opacity = '1';
+    elements.forEach(element => {
+        element.addEventListener('click', function () {
+            const dataStory = this.getAttribute('data-story');
+            if (dataStory) {
+                sViewStatic.style.height = 'calc(100% - 80px)';
+                sViewC.style.display = 'block';
+                sViewStatic.setAttribute('src', `https://nomadful.github.io/dac/s/${dataStory}`);
+            }
+        });
+    });
 });
     </script>
-    <script name="profiles">
-      //Relaxcapes
-      document.querySelector("#usr-t-1").addEventListener("click", () => {
-  document.querySelector("#p-relaxcapes").style.height = "60vh";
-});
-            document.querySelector("#p-relaxcapes-c").addEventListener("click", () => {
-  document.querySelector("#p-relaxcapes").style.height = "0px";
-});
+    <script>
+      document.querySelector("#g-card").addEventListener("click", () => {
+        document.querySelector("#s-view").style.height = "calc(100% - 80px)";
+        document.querySelector("#s-view-c").style.display = "block";
+        document.querySelector("#g-f-bg").style.opacity = "0";
+      });
       
-      document.querySelector("#relaxcapes-clip-1").addEventListener("click", () => {
-  const targetElement = document.getElementById('target');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/media/1.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-relaxcapes").style.height = "0px";
-}
-});
+      document.querySelector("#g-card-2").addEventListener("click", () => {
+        document.querySelector("#s-view-2").style.height = "calc(100% - 80px)";
+        document.querySelector("#s-view-c").style.display = "block";
+        document.querySelector("#g-f-bg").style.opacity = "0";
+      });
       
-      document.querySelector("#relaxcapes-clip-2").addEventListener("click", () => {
-  const targetElement = document.getElementById('target');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/media/2.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-relaxcapes").style.height = "0px";
-}
-});
+      document.querySelector("#g-card-3").addEventListener("click", () => {
+        document.querySelector("#s-view-3").style.height = "calc(100% - 80px)";
+        document.querySelector("#s-view-c").style.display = "block";
+        document.querySelector("#g-f-bg").style.opacity = "0";
+      });
       
-       document.querySelector("#relaxcapes-clip-3").addEventListener("click", () => {
-  const targetElement = document.getElementById('target');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/media/3.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-relaxcapes").style.height = "0px";
-}
-});
+      document.querySelector("#s-view-c").addEventListener("click", () => {
+        document.querySelector("#s-view").style.height = "0px";
+        document.querySelector("#s-view-2").style.height = "0px";
+        document.querySelector("#s-view-3").style.height = "0px";
+        document.querySelector("#s-view-c").style.display = "none";
+        document.querySelector("#g-f-bg").style.opacity = "1";
+      });
       
-       document.querySelector("#relaxcapes-clip-4").addEventListener("click", () => {
-  const targetElement = document.getElementById('target');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/media/4.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-relaxcapes").style.height = "0px";
-}
-});
-      
-       document.querySelector("#relaxcapes-clip-5").addEventListener("click", () => {
-  const targetElement = document.getElementById('target');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/media/5.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-relaxcapes").style.height = "0px";
-}
-});
-
-document.querySelector("#relaxcapes-clip-6").addEventListener("click", () => {
-  const targetElement = document.getElementById('target');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/media/6.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-relaxcapes").style.height = "0px";
-}
-});
-
-document.querySelector("#relaxcapes-clip-7").addEventListener("click", () => {
-  const targetElement = document.getElementById('target');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/media/7.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-relaxcapes").style.height = "0px";
-}
-});
-      
-      //Animals
-      document.querySelector("#usr-t-2").addEventListener("click", () => {
-  document.querySelector("#p-animals").style.height = "60vh";
-});
-            document.querySelector("#p-animals-c").addEventListener("click", () => {
-  document.querySelector("#p-animals").style.height = "0px";
-});
-      
-      document.querySelector("#animals-clip-1").addEventListener("click", () => {
-  const targetElement = document.getElementById('target2');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/animals/media/1.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-animals").style.height = "0px";
-}
-});
-      
-      document.querySelector("#animals-clip-2").addEventListener("click", () => {
-  const targetElement = document.getElementById('target2');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/animals/media/2.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-animals").style.height = "0px";
-}
-});
-      
-       document.querySelector("#animals-clip-3").addEventListener("click", () => {
-  const targetElement = document.getElementById('target2');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/animals/media/3.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-animals").style.height = "0px";
-}
-});
-      
-       document.querySelector("#animals-clip-4").addEventListener("click", () => {
-  const targetElement = document.getElementById('target2');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/animals/media/4.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-animals").style.height = "0px";
-}
-});
-
-document.querySelector("#animals-clip-5").addEventListener("click", () => {
-  const targetElement = document.getElementById('target2');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/animals/media/5.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-animals").style.height = "0px";
-}
-});
-      
-      //Quotes
-      document.querySelector("#usr-t-3").addEventListener("click", () => {
-  document.querySelector("#p-quotes").style.height = "60vh";
-});
-            document.querySelector("#p-quotes-c").addEventListener("click", () => {
-  document.querySelector("#p-quotes").style.height = "0px";
-});
-      
-      document.querySelector("#quotes-clip-1").addEventListener("click", () => {
-  const targetElement = document.getElementById('target3');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/quotes/media/1.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-quotes").style.height = "0px";
-}
-});
-      
-      document.querySelector("#quotes-clip-2").addEventListener("click", () => {
-  const targetElement = document.getElementById('target3');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/quotes/media/2.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-quotes").style.height = "0px";
-}
-});
-      
-       document.querySelector("#quotes-clip-3").addEventListener("click", () => {
-  const targetElement = document.getElementById('target3');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/quotes/media/3.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-quotes").style.height = "0px";
-}
-});
-      
-document.querySelector("#quotes-clip-4").addEventListener("click", () => {
-  const targetElement = document.getElementById('target3');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/quotes/media/4.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-quotes").style.height = "0px";
-}
-});
-
-      //Nature
-      document.querySelector("#usr-t-4").addEventListener("click", () => {
-  document.querySelector("#p-nature").style.height = "60vh";
-});
-            document.querySelector("#p-nature-c").addEventListener("click", () => {
-  document.querySelector("#p-nature").style.height = "0px";
-});
-      
-      document.querySelector("#nature-clip-1").addEventListener("click", () => {
-  const targetElement = document.getElementById('target4');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/nature/media/1.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-nature").style.height = "0px";
-}
-});
-      
-      document.querySelector("#nature-clip-2").addEventListener("click", () => {
-  const targetElement = document.getElementById('target4');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/nature/media/2.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-nature").style.height = "0px";
-}
-});
-
-document.querySelector("#nature-clip-3").addEventListener("click", () => {
-  const targetElement = document.getElementById('target4');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/nature/media/3.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-nature").style.height = "0px";
-}
-});
-
-document.querySelector("#nature-clip-4").addEventListener("click", () => {
-  const targetElement = document.getElementById('target4');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/nature/media/4.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-nature").style.height = "0px";
-}
-});
-
-//Meditate
-document.querySelector("#usr-t-5").addEventListener("click", () => {
-  document.querySelector("#p-meditate").style.height = "60vh";
-});
-            document.querySelector("#p-meditate-c").addEventListener("click", () => {
-  document.querySelector("#p-meditate").style.height = "0px";
-});
-      
-      document.querySelector("#meditate-clip-1").addEventListener("click", () => {
-  const targetElement = document.getElementById('target5');
-const videoElement = targetElement.querySelector('video');
-if (videoElement) {
-  videoElement.src = 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/meditate/media/1.mp4';
-  videoElement.play();
-  videoElement.loop = true;
-  document.querySelector("#p-meditate").style.height = "0px";
-}
-});
+      document.querySelector("#s-view-c-2").addEventListener("click", () => {
+        document.querySelector("#s-view-static").style.height = "0px";
+        document.querySelector("#s-view-c-2").style.display = "none";
+      });
     </script>
-    <script type="module" name="s1">
-  import { PlyrLayout, VidstackPlayer } from 'https://cdn.vidstack.io/player';
-
-  const player = await VidstackPlayer.create({
-    target: '#target',
-    src: 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/relaxcapes/media/7.mp4',
-  });
-      
-     player.setAttribute('disable-fullscreen', true);
-      
-     player.addEventListener('mousedown', (event) => {
-  player.pause();
-});
-
-player.addEventListener('mouseup', (event) => {
-  player.play();
-});
-
-player.addEventListener('touchstart', (event) => {
-  player.pause();
-});
-
-player.addEventListener('touchend', (event) => {
-  player.play();
-});
-      
-      document.querySelector("#v1-muted").addEventListener("click", () => {
-        document.querySelector("#v1-muted").style.display = "none";
-  document.querySelector("#v1-unmuted").style.display = "block";
-  player.removeAttribute("muted");
-      });
-      
-      document.querySelector("#v1-unmuted").addEventListener("click", () => {
-        document.querySelector("#v1-unmuted").style.display = "none";
-  document.querySelector("#v1-muted").style.display = "block";
-  player.setAttribute("muted", "");
-      });
-      
-      const target = document.getElementById('target');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            player.play();
-        } else {
-            player.pause();
-        }
-    });
-}, {
-    threshold: 0.5
-});
-observer.observe(target);
-</script>
-    <script type="module" name="s2">
-  import { PlyrLayout, VidstackPlayer } from 'https://cdn.vidstack.io/player';
-
-  const player = await VidstackPlayer.create({
-    target: '#target2',
-    src: 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/animals/media/5.mp4',
-  });
-      
-     player.setAttribute('disable-fullscreen', true);
-      
-     player.addEventListener('mousedown', (event) => {
-  player.pause();
-});
-
-player.addEventListener('mouseup', (event) => {
-  player.play();
-});
-
-player.addEventListener('touchstart', (event) => {
-  player.pause();
-});
-
-player.addEventListener('touchend', (event) => {
-  player.play();
-});
-      
-      document.querySelector("#v2-muted").addEventListener("click", () => {
-        document.querySelector("#v2-muted").style.display = "none";
-  document.querySelector("#v2-unmuted").style.display = "block";
-  player.removeAttribute("muted");
-      });
-      
-      document.querySelector("#v2-unmuted").addEventListener("click", () => {
-        document.querySelector("#v2-unmuted").style.display = "none";
-  document.querySelector("#v2-muted").style.display = "block";
-  player.setAttribute("muted", "");
-      });
-      
-      const target = document.getElementById('target2');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            player.play();
-        } else {
-            player.pause();
-        }
-    });
-}, {
-    threshold: 0.5
-});
-observer.observe(target);
-</script>
-    <script type="module" name="s3">
-  import { PlyrLayout, VidstackPlayer } from 'https://cdn.vidstack.io/player';
-
-  const player = await VidstackPlayer.create({
-    target: '#target3',
-    src: 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/quotes/media/4.mp4',
-  });
-      
-     player.setAttribute('disable-fullscreen', true);
-      
-     player.addEventListener('mousedown', (event) => {
-  player.pause();
-});
-
-player.addEventListener('mouseup', (event) => {
-  player.play();
-});
-
-player.addEventListener('touchstart', (event) => {
-  player.pause();
-});
-
-player.addEventListener('touchend', (event) => {
-  player.play();
-});
-      
-      document.querySelector("#v3-muted").addEventListener("click", () => {
-        document.querySelector("#v3-muted").style.display = "none";
-  document.querySelector("#v3-unmuted").style.display = "block";
-  player.removeAttribute("muted");
-      });
-      
-      document.querySelector("#v3-unmuted").addEventListener("click", () => {
-        document.querySelector("#v3-unmuted").style.display = "none";
-  document.querySelector("#v3-muted").style.display = "block";
-  player.setAttribute("muted", "");
-      });
-      
-      const target = document.getElementById('target3');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            player.play();
-        } else {
-            player.pause();
-        }
-    });
-}, {
-    threshold: 0.5
-});
-observer.observe(target);
-</script>
-    <script type="module" name="s4">
-  import { PlyrLayout, VidstackPlayer } from 'https://cdn.vidstack.io/player';
-
-  const player = await VidstackPlayer.create({
-    target: '#target4',
-    src: 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/nature/media/3.mp4',
-  });
-      
-     player.setAttribute('disable-fullscreen', true);
-      
-     player.addEventListener('mousedown', (event) => {
-  player.pause();
-});
-
-player.addEventListener('mouseup', (event) => {
-  player.play();
-});
-
-player.addEventListener('touchstart', (event) => {
-  player.pause();
-});
-
-player.addEventListener('touchend', (event) => {
-  player.play();
-});
-      
-      document.querySelector("#v4-muted").addEventListener("click", () => {
-        document.querySelector("#v4-muted").style.display = "none";
-  document.querySelector("#v4-unmuted").style.display = "block";
-  player.removeAttribute("muted");
-      });
-      
-      document.querySelector("#v4-unmuted").addEventListener("click", () => {
-        document.querySelector("#v4-unmuted").style.display = "none";
-  document.querySelector("#v4-muted").style.display = "block";
-  player.setAttribute("muted", "");
-      });
-      
-      const target = document.getElementById('target4');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            player.play();
-        } else {
-            player.pause();
-        }
-    });
-}, {
-    threshold: 0.5
-});
-observer.observe(target);
-</script>
-    <script type="module" name="s5">
-  import { PlyrLayout, VidstackPlayer } from 'https://cdn.vidstack.io/player';
-
-  const player = await VidstackPlayer.create({
-    target: '#target5',
-    src: 'https://raw.githubusercontent.com/nomadful/dac/refs/heads/main/cdn/meditate/media/1.mp4',
-  });
-      
-     player.setAttribute('disable-fullscreen', true);
-      
-     player.addEventListener('mousedown', (event) => {
-  player.pause();
-});
-
-player.addEventListener('mouseup', (event) => {
-  player.play();
-});
-
-player.addEventListener('touchstart', (event) => {
-  player.pause();
-});
-
-player.addEventListener('touchend', (event) => {
-  player.play();
-});
-      
-      document.querySelector("#v5-muted").addEventListener("click", () => {
-        document.querySelector("#v5-muted").style.display = "none";
-  document.querySelector("#v5-unmuted").style.display = "block";
-  player.removeAttribute("muted");
-      });
-      
-      document.querySelector("#v5-unmuted").addEventListener("click", () => {
-        document.querySelector("#v5-unmuted").style.display = "none";
-  document.querySelector("#v5-muted").style.display = "block";
-  player.setAttribute("muted", "");
-      });
-      
-      const target = document.getElementById('target5');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            player.play();
-        } else {
-            player.pause();
-        }
-    });
-}, {
-    threshold: 0.5
-});
-observer.observe(target);
-</script>
     <script name="ads">
       function loadData() {
   const IDs = ["767QD7HG", "9IZM40HD", "P01GE05Z", "RI1DJMBT", "93274BM0", "75RL62WN", "YYYSXB3D", "V4SJXNGT", "9ATNLLI0", "M75B7T02", "CRBME5HC", "J03D7IXI", "2NUOWZFK", "75RL62WN", "9ZMFTKH1", "V44SBNS8"];
@@ -1163,8 +1466,6 @@ observer.observe(target);
     })
 }
 
-window.onload = loadData;
-
 document.querySelector("#a1-muted").addEventListener("click", () => {
         document.querySelector("#a1-muted").style.display = "none";
   document.querySelector("#a1-unmuted").style.display = "block";
@@ -1176,6 +1477,24 @@ document.querySelector("#a1-muted").addEventListener("click", () => {
   document.querySelector("#a1-muted").style.display = "block";
   document.querySelector("#admedia").muted = true;
       });
+
+    const campaigns = [
+      'https://ti.tradetracker.net/?c=34266&amp;m=2372570&amp;a=486125&amp;r=&amp;t=custom',
+      'https://partner.gootickets.com/i?c=39230&amp;m=2443304&amp;a=486125&amp;r=&amp;t=iframe',
+      'https://partner.gootickets.com/i?c=39230&amp;m=2443317&amp;a=486125&amp;r=&amp;t=iframe',
+      'https://nomadful.github.io/dac/as/fanatics-002.html',
+      'https://nomadful.github.io/dac/as/omio-003.html'
+    ];
+
+    function getRandomCampaign() {
+      const randomIndex = Math.floor(Math.random() * campaigns.length);
+      return campaigns[randomIndex];
+    }
+
+    function campaign() {
+      const frame2 = document.getElementById('fr-2');
+      frame2.src = getRandomCampaign();
+    };
     </script>
   </body>
 </html>
