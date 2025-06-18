@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Nomadful</title>
+  <link rel="stylesheet" href="https://nomadful.io/style.css">
+  <meta name="theme-color" content="#101418" />
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #101418;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .cover {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      background: #FFFFFF10
+    }
+    
+    .s-h {
+      width: 100%;
+      height: 85px;
+      background: #10141890;
+      position: fixed;
+      position: -webkit-fixed;
+      top: 0px;
+      backdrop-filter: blur(50px);
+      -webkit-backdrop-filter: blur(50px);
+      z-index: 1000;
+      opacity: 0;
+      transition: linear 200ms;
+      border-bottom: solid 0.5px #FFFFFF50;
+    }
+  </style>
+  <body>
+    <div class="s-h">
+      <h3 style="width: calc(100% - 100px); text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left: 20px; margin-top: 20px;">
+        Meditation for beginners
+      </h3>
+      <h4 style="width: calc(100% - 100px); text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left: 20px; margin-top: -15px; color: #FFFFFF50; font-weight: 400;">
+        Meditate
+      </h4>
+    </div>
+    <div class="cover" style="background: url('https://nomadful.github.io/dac/cdn/i/meditation-for-beginners.jpeg'); background-size: cover; background-position: center;">
+      <div style="width: 100%; height: 100%; position: relative;">
+        <img src="https://nomadful.github.io/dac/cdn/p/meditate.png" style="width: auto; height: 60px; position: absolute; top: 0px; left: 20px;" id="g-publisher">
+        <div style="width: 100%; height: auto; background: rgb(16,20,24); background: linear-gradient(180deg, rgba(16,20,24,0) 0%, rgba(16,20,24,1) 100%); position: absolute; bottom: 0px; margin: 0; left: 0; right: 0; margin-left: auto; margin-right: auto;">
+          <div style="width: calc(100% - 40px); margin: 0; left: 0; right: 0; margin-left: auto; margin-right: auto;">
+            <h1 style="text-align: left; margin-bottom: 0px;" id="g-title">
+              Meditation for beginners
+            </h1>
+            <p style="text-transform: uppercase; text-align: left; color: #ABABAB; margin-bottom: 20px; margin-top: 6px;">
+              <span style="font-weight: 600;" id="g-category">Meditation</span> • <span id="g-time">5</span> min
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="clear: both;"></div>
+    <div style="width: 100%; height: 0.5px; background: #FFFFFF50;"></div>
+    <center>
+      <div style="width: calc(100% - 40px); text-align: left;">
+        <p style="margin-top: 20px;">
+          Meditation is a proven method to reduce stress and anxiety, and even improve one's blood pressure. Closing your eyes to focus on your breath and body may be a simple action, but can work wonders for us humans. Yet the question that remains is... how to get started?
+          <br>
+          <br>
+          That's why we've prepared a short introduction, that will serve as a guide through your meditation journey.
+        </p>
+        <br>
+        <h2 style="margin-top: 0px;">
+          The space
+        </h2>
+        <p style="margin-top: -10px;">
+          You must be somewhere that's comfortable and distraction-proof at the same time. This means: no phones, no noise. Try storing your phone somewhere outside your room and closing the door. If you feel like connecting with nature, try meditating in your backyard, or at a calm park.
+        </p>
+        <br>
+        <h2 style="margin-top: 0px;">
+          The time
+        </h2>
+        <p style="margin-top: -10px;">
+          There's no need to meditate for hours to relax and wind down. Just a couple of minutes (5 or 10) every couple days will be more than enough. Try setting a timer and focusing on your breathing until your device rings.
+        </p>
+        <br>
+        <h2 style="margin-top: 0px;">
+          The focus
+        </h2>
+        <p style="margin-top: -10px;">
+          If you feel distracted or find it difficult to clear your mind, count your breaths. Take things slowly and breathe calmly. Meditation is a pressure-free space, so if you ever feel like distractions are getting ahead of you, it may be helpful to pause and continue some other time.
+        </p>
+        <br>
+        <h2 style="margin-top: 0px;">
+          Starting your first practice
+        </h2>
+        <p style="margin-top: -10px;">
+          Remember to sit in an upright posture as it helps you focus and brings you to a mindful state. There's no specific leg position, so place your legs in whatever way comfortable, as well as your hands. Closing your eyes is key to removing distractions during your meditation session. From the moment you close your eyes and until your timer rings, the only thing that matters is focusing on your breath. If you start wandering, try to bring your focus back to your breathing, but keep in mind that practice takes time and there's no need to put pressure on yourself. If you don't feel like meditating, even after you've set everything up, just take a walk and come back another time, or even try another day. 
+          <br>
+          <br>
+          Meditation is a journey that takes time, but hopefully this guide will help you prepare to get it started.
+        </p>
+        <div style="clear: both; height: 100px;"></div>
+      </div>
+    </center>
+    <script>
+      document.addEventListener("scroll", function() {
+    var cover = document.querySelector(".cover");
+    var sHItems = document.querySelectorAll(".s-h");
+    if (!isInViewport(cover)) {
+        sHItems.forEach(function(item) {
+            item.style.opacity = "1";
+        });
+    } else {
+        sHItems.forEach(function(item) {
+            item.style.opacity = "0";
+        });
+    }
+});
+
+function isInViewport(element) {
+    var rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+    </script>
+  </body>
+</html>
