@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Nomadful</title>
+  <link rel="stylesheet" href="https://nomadful.io/style.css">
+  <meta name="theme-color" content="#101418" />
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #101418;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .cover {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      background: #FFFFFF10
+    }
+    
+    .s-h {
+      width: 100%;
+      height: 85px;
+      background: #10141890;
+      position: fixed;
+      position: -webkit-fixed;
+      top: 0px;
+      backdrop-filter: blur(50px);
+      -webkit-backdrop-filter: blur(50px);
+      z-index: 1000;
+      opacity: 0;
+      transition: linear 200ms;
+      border-bottom: solid 0.5px #FFFFFF50;
+    }
+  </style>
+  <body>
+    <div class="s-h">
+      <h3 style="width: calc(100% - 100px); text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left: 20px; margin-top: 20px;">
+        Three special noodle recipes
+      </h3>
+      <h4 style="width: calc(100% - 100px); text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left: 20px; margin-top: -15px; color: #FFFFFF50; font-weight: 400;">
+        Dayfood
+      </h4>
+    </div>
+    <div class="cover" style="background: url('https://nomadful.github.io/dac/cdn/i/three-special-noodle-recipes.jpeg'); background-size: cover; background-position: center;">
+      <div style="width: 100%; height: 100%; position: relative;">
+        <img src="https://nomadful.github.io/dac/cdn/p/dayfood.png" style="width: auto; height: 60px; position: absolute; top: 0px; left: 20px;" id="g-publisher">
+        <div style="width: 100%; height: auto; background: rgb(16,20,24); background: linear-gradient(180deg, rgba(16,20,24,0) 0%, rgba(16,20,24,1) 100%); position: absolute; bottom: 0px; margin: 0; left: 0; right: 0; margin-left: auto; margin-right: auto;">
+          <div style="width: calc(100% - 40px); margin: 0; left: 0; right: 0; margin-left: auto; margin-right: auto;">
+            <h1 style="text-align: left; margin-bottom: 0px;" id="g-title">
+              Three special noodle recipes
+            </h1>
+            <p style="text-transform: uppercase; text-align: left; color: #ABABAB; margin-bottom: 20px; margin-top: 6px;">
+              <span style="font-weight: 600;" id="g-category">Recipes</span> • <span id="g-time">5</span> min
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="clear: both;"></div>
+    <div style="width: 100%; height: 0.5px; background: #FFFFFF50;"></div>
+    <center>
+      <div style="width: calc(100% - 40px); text-align: left;">
+        <h2>
+          1. Pad Thai
+        </h2>
+        <p style="margin-top: -10px;">
+          200g of rice noodles
+          <br>
+          200g of shrimp or chicken
+          <br>
+          2 eggs
+          <br>
+          1 cup of bean sprouts
+          <br>
+          3 green onions (chopped)
+          <br>
+          1/4 cup of peanuts (crushed)
+          <br>
+          3 tablespoons of soy sauce
+          <br>
+          2 tablespoons of lime juice
+          <br>
+          1 tablespoon of chili powder (optional)
+        </p>
+        <br>
+        <h2>
+          2. Beef Noodle Soup
+        </h2>
+        <p style="margin-top: -10px;">
+          300g of beef (sliced thinly)
+          <br>
+          200g of rice noodles
+          <br>
+          1 onion (sliced)
+          <br>
+          4 garlic cloves (minced)
+          <br>
+          4 cups of beef broth
+          <br>
+          2 tablespoons of soy sauce
+          <br>
+          1 piece of ginger (sliced)
+          <br>
+          Fresh cilantro (to taste; for serving)
+          <br>
+          Lime (to taste)
+        </p>
+        <br>
+        <h2>
+          3. Yakisoba
+        </h2>
+        <p style="margin-top: -10px;">
+          200g of ramen noodles (best if yakisoba)
+          <br>
+          200g of pork or chicken (sliced thinly)
+          <br>
+          1 cup of cabbage (shredded)
+          <br>
+          1 carrot (julienned)
+          <br>
+          Half onion (sliced)
+          <br>
+          2 green onions (chopped)
+          <br>
+          3 tablespoons of yakisoba sauce
+          <br>
+          1 tablespoon vegetable oil
+          <br>
+          Salt (to taste)
+          <br>
+          Pepper (to taste)
+          <br>
+          Ginger (pickled; for serving)
+        </p>
+        <div style="clear: both; height: 100px;"></div>
+      </div>
+    </center>
+    <script>
+      document.addEventListener("scroll", function() {
+    var cover = document.querySelector(".cover");
+    var sHItems = document.querySelectorAll(".s-h");
+    if (!isInViewport(cover)) {
+        sHItems.forEach(function(item) {
+            item.style.opacity = "1";
+        });
+    } else {
+        sHItems.forEach(function(item) {
+            item.style.opacity = "0";
+        });
+    }
+});
+
+function isInViewport(element) {
+    var rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+    </script>
+  </body>
+</html>
