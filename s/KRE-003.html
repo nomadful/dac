@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Nomadful</title>
+  <link rel="stylesheet" href="https://nomadful.io/style.css">
+  <meta name="theme-color" content="#101418" />
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #101418;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .cover {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      background: #FFFFFF10
+    }
+    
+    .s-h {
+      width: 100%;
+      height: 85px;
+      background: #10141890;
+      position: fixed;
+      position: -webkit-fixed;
+      top: 0px;
+      backdrop-filter: blur(50px);
+      -webkit-backdrop-filter: blur(50px);
+      z-index: 1000;
+      opacity: 0;
+      transition: linear 200ms;
+      border-bottom: solid 0.5px #FFFFFF50;
+    }
+  </style>
+  <body>
+    <div class="s-h">
+      <h3 style="width: calc(100% - 100px); text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left: 20px; margin-top: 20px;">
+        Five refreshing smoothies
+      </h3>
+      <h4 style="width: calc(100% - 100px); text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left: 20px; margin-top: -15px; color: #FFFFFF50; font-weight: 400;">
+        Kitchen Republic
+      </h4>
+    </div>
+    <div class="cover" style="background: url('https://nomadful.github.io/dac/cdn/i/five-refreshing-smoothies.jpeg'); background-size: cover; background-position: center;">
+      <div style="width: 100%; height: 100%; position: relative;">
+        <img src="https://nomadful.github.io/dac/cdn/p/kitchenrepublic.png" style="width: auto; height: 60px; position: absolute; top: 0px; left: 20px;" id="g-publisher">
+        <div style="width: 100%; height: auto; background: rgb(16,20,24); background: linear-gradient(180deg, rgba(16,20,24,0) 0%, rgba(16,20,24,1) 100%); position: absolute; bottom: 0px; margin: 0; left: 0; right: 0; margin-left: auto; margin-right: auto;">
+          <div style="width: calc(100% - 40px); margin: 0; left: 0; right: 0; margin-left: auto; margin-right: auto;">
+            <h1 style="text-align: left; margin-bottom: 0px;" id="g-title">
+              Five refreshing smoothies
+            </h1>
+            <p style="text-transform: uppercase; text-align: left; color: #ABABAB; margin-bottom: 20px; margin-top: 6px;">
+              <span style="font-weight: 600;" id="g-category">Recipes</span> • <span id="g-time">10</span> min
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="clear: both;"></div>
+    <div style="width: 100%; height: 0.5px; background: #FFFFFF50;"></div>
+    <center>
+      <div style="width: calc(100% - 40px); text-align: left;">
+        <h3>
+          1. Mango and Banana
+        </h3>
+        <p style="margin-top: -10px;">
+          Contains: mango, banana, yoghurt, coconut milk and honey.
+        </p>
+        <br>
+        <h3>
+          2. Berry and Spinach
+        </h3>
+        <p style="margin-top: -10px;">
+          Contains: mixed berries, fresh spinach, banana, almond milk and chia seeds.
+        </p>
+        <br>
+        <h2>
+          3. Pineapple and Coconut
+        </h2>
+        <p style="margin-top: -10px;">
+          Contains: pineapple, coconut water (or milk), greek yoghurt, lime juice and mint leaves.
+        </p>
+        <br>
+        <h2>
+          4. Green Detox
+        </h2>
+        <p style="margin-top: -10px;">
+          Contains: kale, green apple, cucumber, lemon juice and ginger.
+        </p>
+        <br>
+        <h2>
+          5. Watermelon and Mint
+        </h2>
+        <p style="margin-top: -10px;">
+          Contains: watermelon, fresh mint, lime juice and honey.
+        </p>
+        <div style="clear: both; height: 100px;"></div>
+      </div>
+    </center>
+    <script>
+      document.addEventListener("scroll", function() {
+    var cover = document.querySelector(".cover");
+    var sHItems = document.querySelectorAll(".s-h");
+    if (!isInViewport(cover)) {
+        sHItems.forEach(function(item) {
+            item.style.opacity = "1";
+        });
+    } else {
+        sHItems.forEach(function(item) {
+            item.style.opacity = "0";
+        });
+    }
+});
+
+function isInViewport(element) {
+    var rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+    </script>
+  </body>
+</html>
